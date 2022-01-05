@@ -1,0 +1,31 @@
+@charset "utf-8";
+
+#wrapper{
+    max-width:1290px;
+    margin: 0 auto;
+    
+}
+body{
+    font-size:16px;
+}
+
+.radio-btn{
+    position:relative;
+    input{
+        position:absolute;left:0;top:0;width:1px;height:1px;visibility:hidden;overflow:hidden;
+    }
+    label{
+        position:relative;cursor:pointer;@include vw-convert-pc(padding-left, 30);
+        &:before{
+            content:"";position:absolute;left:0;top:1px;@include vw-convert-pc(width, 18);@include vw-convert-pc(height, 18);
+            //background:url(../assets/images/radio-blank.png) no-repeat center/100% auto;
+            background:url(../images/radio-blank.png) no-repeat center/100% auto;
+        }
+    }
+    input:checked + label{
+        font-weight:bold;
+        &:before{
+            background:url(../images/radio-check.png) no-repeat center/100% auto;
+        }
+    }
+}

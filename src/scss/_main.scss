@@ -1,0 +1,227 @@
+@charset "utf-8";
+
+.section{
+    .item_button{
+        &.choice{
+            border : 3px solid #006bea;
+        }
+    }
+    &_title{
+        font-weight: 700;
+        @include vw-font-size-pc(26);
+        text-align: center;
+        
+    }
+    &__purchase{
+        @include vw-convert-pc(padding-top, 86);
+        .title{
+            text-align: center;
+            font-family: $SharpSans;
+            span{
+                @include vw-font-size-pc(16);
+                font-weight: 700;
+                @include vw-convert-pc(padding-bottom, 20);
+            }
+            h1{
+                @include vw-font-size-pc(48);
+                font-weight: 700;
+                @include vw-convert-pc(padding-bottom, 54);
+            }
+        }
+        .section_title{
+            @include vw-convert-pc(padding-bottom, 68);
+        }
+        .tab{
+            @include vw-convert-pc(margin-right, -30);
+            overflow: hidden;
+            font-size: 0;
+            @include vw-convert-pc(margin-bottom, 50);
+            display: flex;
+            .item{
+                width:33.33%;
+                @include vw-convert-pc(padding-right, 30);
+                &_button{
+                    @include vw-convert-pc(height, 125);
+                    @include vw-convert-pc(border-radius, 20);
+                    width:100%;
+                    background-color: #f7f7f7;
+                    display: inline-flex;
+                    justify-content: center;
+                    align-items: center;
+                    &:before{
+                        content: '';
+                        background: url('../images/icon_smartphone.png') no-repeat center/100%;
+                        display: inline-block;
+                        @include vw-convert-pc(width, 30);
+                        @include vw-convert-pc(height, 49);
+                        @include vw-convert-pc(margin-right, 12);
+                    }
+                    &#tablet{
+                        &:before{
+                            background-image: url('../images/icon_tablet.png');
+                            @include vw-convert-pc(width, 57);
+                            @include vw-convert-pc(height, 41);
+                            @include vw-convert-pc(margin-right, 25);
+                        }
+                    }
+                    &#wearable{
+                        &:before{
+                            background-image: url('../images/icon_watch.png');
+                            @include vw-convert-pc(width, 39);
+                            @include vw-convert-pc(height, 49);
+                            @include vw-convert-pc(margin-right, 10);
+                        }
+                    }
+                }
+            }
+            &_section{
+                @include vw-convert-pc(margin-right, -30);
+                overflow: hidden;
+                font-size: 0;
+                display: flex;
+                .item{
+                    width:33.33%;
+                    @include vw-convert-pc(padding-right, 30);
+                    &_button{
+                        width:100%;
+                        @include vw-convert-pc(border-radius, 20);
+                        background-color: #f7f7f7;
+                        @include vw-convert-pc(height, 363);
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        justify-content: center;
+                    }
+                    &_name{
+                        @include vw-font-size-pc(16);
+                        font-family: $SharpSans;
+                        font-weight: 700;
+                        text-align: center;
+                        @include vw-convert-pc(padding, 35 0 27);
+                    }
+                    .price{
+                        font-weight: 700;
+                        color:#8f8f8f;
+                        @include vw-font-size-pc(14);
+                    }
+                }
+            }
+        }
+
+    }
+    &__trade{
+        @include vw-convert-pc(padding, 148 262 136);
+        .section{
+            &_title{
+                @include vw-convert-pc(padding-bottom, 30);
+            }
+            &_desc{
+                text-align: center;
+            }
+        }
+        .device{
+            @include vw-convert-pc(padding, 94 0 20);
+            @include vw-convert-pc(margin-bottom, 125);
+            border-bottom: 1px solid #d5d5d5;
+            .top{
+                display: flex;
+                justify-content: space-between;
+                font-weight: bold;
+                @include vw-font-size-pc(22);
+                .estimatetd{
+                    text-align: right;
+                }
+            }
+            .checked-item{
+                background:#f7f7f7;
+                border:1px solid #000;
+                width:100%;
+                @include vw-convert-pc(padding, 20 65 20 10);
+                @include vw-convert-pc(border-radius, 7);
+                @include vw-convert-pc(margin-top, 30);
+                position: relative;
+                display: flex;
+                justify-content: space-between;
+                font-weight: bold;
+                p{
+                    @include vw-convert-pc(padding-left,5);
+                    @include vw-font-size-pc(14);
+                }
+                &:before{
+                    content:'';
+                    display: block;
+                    position: absolute;
+                    top:50%; transform: translateY(-50%);
+                    @include vw-convert-pc(right, 20);
+                    @include vw-convert-pc(width, 20);
+                    @include vw-convert-pc(height, 11);
+                    background: url('../images/icon_arrow_down.png') no-repeat center/100%;
+                }
+            }
+            .list{
+                @include vw-convert-pc(margin, 15 22 30 0);
+                @include vw-convert-pc(max-height, 185);
+                
+                overflow-y: auto;
+                &::-webkit-scrollbar {
+                    width:5px;
+                }
+                &::-webkit-scrollbar-track {
+                    //background-color:transparent;
+                    background: #ddd;
+                }
+                &::-webkit-scrollbar-thumb {
+                    border-radius: 8px;
+                    background-color: #313131;
+                }
+            }
+            .item{
+                @include vw-font-size-pc(14);
+                display: flex;
+                justify-content: space-between;
+                @include vw-convert-pc(padding, 15 37 15 22);
+            }
+            .price{
+                font-weight: 400;
+                color:#757575;
+                span{
+                    color:#006bea;
+                }
+            }
+            &.list-hidden{
+                .list{
+                    display: none;
+                }
+                border-bottom:none;
+                .checked-item{
+                    &:before{
+                        transform: translateY(-50%) scaleY(-1);
+                    }
+                }
+            }
+        }
+        .result{
+            text-align: right;
+            font-weight: bold;
+            @include vw-font-size-pc(36);
+            @include vw-convert-pc(padding-right, 92);
+            font-family: $SharpSans;
+            .before{
+                color:#7c7b7b;
+            }
+        }
+        .button_wrap{
+            @include vw-convert-pc(margin-top, 50);
+            text-align: center;
+            button{
+                @include vw-convert-pc(padding, 19 30);
+                text-align: center;
+                background-color: #000;
+                color:#fff;
+                font-weight: bold;
+                @include vw-convert-pc(border-radius, 30);
+            }
+        }
+    }
+}
+
