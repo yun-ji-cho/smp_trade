@@ -1,4 +1,4 @@
-/*! Build Date: 2022-1-5 1:11:02 ├F10: PM┤ */
+/*! Build Date: 2022-1-5 6:01:46 ├F10: PM┤ */
 /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -87,15 +87,76 @@
 /************************************************************************/
 /******/ ({
 
+/***/ "./src/js/data.js":
+/*!************************!*\
+  !*** ./src/js/data.js ***!
+  \************************/
+/*! exports provided: itemInfo */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "itemInfo", function() { return itemInfo; });
+var itemInfo = [{
+  NAME: 'SMP',
+  PRICE: 'Galaxy Z Fold3 (256GB)',
+  'IMAGE URL': '£1,599.00',
+  'CTA Landing': 'https://images.samsung.com/is/image/samsung/p6pim/uk/2108/gallery/uk-galaxy-z-fold3-f926-5g-sm-f926bzkdeua-thumb-477352697?$160_160_PNG$'
+}, {
+  NAME: 'SMP',
+  PRICE: 'Galaxy Z Flip3 (128GB)',
+  'IMAGE URL': '£949.00',
+  'CTA Landing': 'https://images.samsung.com/is/image/samsung/p6pim/uk/sm-f711bzebeua/gallery/uk-galaxy-z-flip3-f711-5g-397170-sm-f711bzebeua-thumb-516130930?$160_160_PNG$'
+}, {
+  NAME: 'SMP',
+  PRICE: 'S21 Ultra 5G (128GB)',
+  'IMAGE URL': '£1,149.00',
+  'CTA Landing': 'https://images.samsung.com/is/image/samsung/p6pim/uk/galaxy-s21/gallery/uk-galaxy-s21-ultra-5g-g988-sm-g998bzsgeua-thumb-368888054?$160_160_PNG$'
+}, {
+  NAME: 'Tablet',
+  PRICE: 'Galaxy Z Fold3 (256GB)',
+  'IMAGE URL': '£1,599.00',
+  'CTA Landing': 'https://images.samsung.com/is/image/samsung/p6pim/uk/2108/gallery/uk-galaxy-z-fold3-f926-5g-sm-f926bzkdeua-thumb-477352697?$160_160_PNG$'
+}, {
+  NAME: 'Tablet',
+  PRICE: 'Galaxy Z Flip3 (128GB)',
+  'IMAGE URL': '£949.00',
+  'CTA Landing': 'https://images.samsung.com/is/image/samsung/p6pim/uk/sm-f711bzebeua/gallery/uk-galaxy-z-flip3-f711-5g-397170-sm-f711bzebeua-thumb-516130930?$160_160_PNG$'
+}, {
+  NAME: 'Tablet',
+  PRICE: 'Galaxy Tab S7 FE (64GB, Wifi)',
+  'IMAGE URL': '£449.00',
+  'CTA Landing': 'https://images.samsung.com/is/image/samsung/p6pim/uk/sm-t733nzsaeua/gallery/uk-galaxy-tab-s7-fe-t733-sm-t733nzsaeua-thumb-490806996?$160_160_PNG$'
+}, {
+  NAME: 'Wearables',
+  PRICE: 'Watch4 Classic (42mm, BT)',
+  'IMAGE URL': '£274.00',
+  'CTA Landing': 'https://images.samsung.com/is/image/samsung/p6pim/uk/2108/gallery/uk-galaxy-watch4-classic-400142-sm-r880nzkaeua-thumb-481824165?$160_160_PNG$'
+}, {
+  NAME: 'Wearables',
+  PRICE: 'Watch4 (40mm, BT)',
+  'IMAGE URL': '£199.00',
+  'CTA Landing': 'https://images.samsung.com/is/image/samsung/p6pim/uk/2108/gallery/uk-galaxy-watch4-400170-sm-r860nzdaeua-thumb-481838692?$160_160_PNG$'
+}]; //export default itemInfo;
+// export function canadianToUs(canadian) {
+//   return roundTwoDecimals(canadian * exchangeRate);
+// }
+
+
+
+/***/ }),
+
 /***/ "./src/js/main.js":
 /*!************************!*\
   !*** ./src/js/main.js ***!
   \************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-// import { itemInfo } from "./data.js";
-// console.log(itemInfo);
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _data_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./data.js */ "./src/js/data.js");
+
 var TRADE = window.TRADE || {};
 
 TRADE = function ($) {
@@ -103,20 +164,43 @@ TRADE = function ($) {
 
   var dev = {
     itemChoiceChange: function itemChoiceChange() {
-      $('.item_button').click(function () {
-        $(this).closest('.radio-wrap').find('.item_button').removeClass('choice');
-        $(this).addClass('choice');
-      });
+      function itemChoice(target) {
+        target.closest('.radio-wrap').find('.item_button').removeClass('choice');
+        target.addClass('choice');
+        console.log(target);
+      }
+
+      itemChoice($('.item_button').eq(0));
+      $('.item_button').click(itemChoice(this));
     },
     tabSectionChange: function tabSectionChange() {
-      var tabitem = $('.tab.radio-wrap');
-      var tabSection = $('.tab_section');
-      var requestURL; // var request = new XMLHttpRequest();
+      var tabitem = $('.tab.radio-wrap .item button'); // var tabSection = $('.tab_section');
+      // var request = new XMLHttpRequest();
       // request.open('GET', requestURL);
       // request.responseType = 'json';
       // request.send();
 
-      tabitem.click(function () {});
+      tabChange();
+      tabitem.each(function () {
+        $(this).click(tabChange);
+      });
+
+      function tabChange() {
+        // console.log($(this))
+        var targetId = $(this).attr('id');
+        var category = _data_js__WEBPACK_IMPORTED_MODULE_0__["itemInfo"].filter(function (item) {
+          return item.NAME === targetId;
+        });
+        var targetSection = $('.tab_section');
+        var url = 'https://images.samsung.com/is/image/samsung/p6pim/uk/galaxy-s21/gallery/uk-galaxy-s21-ultra-5g-g988-sm-g998bzsgeua-thumb-368888054?$160_160_PNG$';
+        var product_name = 'S21 Ultra 5G (128GB)';
+        var price = '£1,149.00';
+        var html = '<div class="item"><button class="item_button">';
+        html += '<img src="' + url + '" alt="">';
+        html += '<p class="item_name">' + product_name + '</p><p class="price">' + price + '</p>';
+        html += '</button></div>';
+        targetSection.append(html);
+      }
     },
     listfoldToggle: function listfoldToggle(button) {
       $(button).closest('.device').toggleClass('list-hidden');
