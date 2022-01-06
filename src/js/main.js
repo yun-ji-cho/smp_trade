@@ -17,7 +17,6 @@ trade = (function($) {
 						.removeClass('choice');
 					$(this).addClass('choice');
 					dev.tabSectionView();
-					dev.changeListView();
 				}
 			});
 		},
@@ -46,6 +45,10 @@ trade = (function($) {
 			//tab 클릭시 첫번째 아이템이 BUY NOW url로 들어가도록
 			dev.ctaLinkChange(category, 0);
 
+			dev.listItemConnect();  
+
+			dev.changeListView();  
+
 		},
 		//Buy Now 버튼 URL 변경
 		ctaLinkChange : function(array, index){
@@ -69,7 +72,6 @@ trade = (function($) {
 					//구 기종 리스트 보이기
 					dev.changeListView();
 				}
-
 			});
 		},
 		//기종 리스트 접기/펼치기
@@ -80,36 +82,53 @@ trade = (function($) {
 		},
 		//구 기종 리스트 보이게
 		changeListView : function(){
-			var targetName = $('.tab_section .item_button.choice').find('.item_name').text().replace('Galaxy','').replace('5G','').replace('  ',' ').trim();
+			var target = $('.tab_section .item_button.choice');
+			var targetName = target.find('.item_name').text().replace('Galaxy','').replace('5G','').replace('  ',' ').trim();
 			
 			var list = returnItemArray.filter(item => item.device === targetName);
 			var listWrap = $('.device .list');
-			console.log(listWrap);
 
 			var itemGroupHtml = '';
 			list.forEach((item, index) => {
-				var inputCheck = (index === 0) ?  'choice' : '';
+				var inputCheck = (index === 0) ?  'checked' : '';
 				var deviceName = item.return_phone.trim();
 				var deviceId = item.return_phone.trim().replace(/ /gi, "_");
 				var deviceRemainPrice = item.remain_price;
-				console.log(deviceName, deviceId);
 
-				//var itemHtml = '<div class="item"><button class="item_button '+ addClass+'">';
 				var itemHtml = '<li class="item"><div class="radio-btn">';
-				itemHtml += '<input type="radio" id="'+ deviceId+ '" name="phone">';
+				itemHtml += '<input type="radio" id="'+ deviceId+ '" name="change_item" '+inputCheck+'>';
 				itemHtml += '<label for="'+ deviceId+ '">' +deviceName+ '</label>';
 				itemHtml += '</div><p class="price">Up to <span>'+ deviceRemainPrice +'</span></p></li>';
 				itemGroupHtml += itemHtml;
 			});
 			listWrap.html(itemGroupHtml);
 
-			
+			dev.listItemConnect(); 
+			dev.listItemChoice();
+		},
+		// 구 기종 선택시 회색박스에 연동시키기
+		listItemConnect : function(){
+			var checkedLabel = $('input:radio[name="change_item"]:checked').siblings('label');
+			var itemPrice = checkedLabel.closest('.item').find('.price span').text();
+			var itemName = checkedLabel.text();
+			$('#item_name').text(itemName);
+			$('#item_price').text(itemPrice);
+		},
+
+		listItemChoice : function(){
+			//라디오박스 체크 변화될 때마다 아이템의 이름, 가격 가져와 회색박스에 연동
+			$("input[name='change_item']:radio").change(function () {
+        dev.listItemConnect();          
+			});
+
 		},
 		init: function() {
 			if ($('.section__purchase').length > 0) {
 				dev.tabSectionChange();
 				dev.tabSectionView();
 				dev.changeListView();
+				dev.listItemConnect();
+				dev.listItemChoice();
 			}
 		},
 	};
