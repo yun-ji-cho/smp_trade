@@ -10,18 +10,18 @@ module.exports = {
 	},
 	entry: {
 		main: ['./src/js/main.js'],
-		styles: ['./src/scss/style.scss']
+		styles: ['./src/scss/style.scss'],
 	},
 	output: {
 		path: path.resolve(__dirname, './dist'),
 		filename: 'js/[name].js',
 	},
 	plugins: [
-	    new MiniCssExtractPlugin({ filename: 'css/style.css' }),
+		new MiniCssExtractPlugin({ filename: 'css/style.css' }),
 		new webpack.BannerPlugin({
-			banner: () => `Build Date: ${new Date().toLocaleString()}`
-		})
-    ],
+			banner: () => `Build Date: ${new Date().toLocaleString()}`,
+		}),
+	],
 	module: {
 		rules: [
 			{
@@ -31,7 +31,7 @@ module.exports = {
 				use: {
 					loader: 'babel-loader',
 					options: {
-						presets: ['@babel/preset-env']
+						presets: ['@babel/preset-env'],
 					},
 				},
 			},
@@ -64,7 +64,7 @@ module.exports = {
 					publicPath: '../',
 					name: 'images/[name].[ext]',
 					limit: 1000,
-				}
+				},
 			},
 			{
 				test: /\.(woff|woff2|ttf|eot)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
@@ -73,8 +73,8 @@ module.exports = {
 					publicPath: '../',
 					name: 'fonts/[name].[ext]',
 					limit: 1000,
-				}
-			}
+				},
+			},
 		],
 	},
 };

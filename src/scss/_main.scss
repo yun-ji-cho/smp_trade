@@ -213,7 +213,7 @@
         .button_wrap{
             @include vw-convert-pc(margin-top, 50);
             text-align: center;
-            button{
+            .button{
                 @include vw-convert-pc(padding, 19 30);
                 text-align: center;
                 background-color: #000;
