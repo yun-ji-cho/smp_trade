@@ -1,4 +1,4 @@
-/*! Build Date: 2022-1-6 23:09:39 */
+/*! Build Date: 2022-1-9 17:38:09 */
 /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -11009,7 +11009,9 @@ trade = function ($) {
         if (!$(this).hasClass('choice')) {
           $(this).closest('.tab').find('.item_button').removeClass('choice');
           $(this).addClass('choice');
-          dev.tabSectionView();
+          dev.tabSectionView(); //before 가격 바꾸기
+
+          dev.beforePriceChange();
         }
       });
     },
@@ -11054,7 +11056,9 @@ trade = function ($) {
           var itemURL = $(this).find('img').data('url');
           $('.ctaButton').attr('href', itemURL); //구 기종 리스트 보이기
 
-          dev.changeListView();
+          dev.changeListView(); //before 가격 바꾸기
+
+          dev.beforePriceChange();
         }
       });
     },
@@ -11086,19 +11090,37 @@ trade = function ($) {
       dev.listItemConnect();
       dev.listItemChoice();
     },
-    // 구 기종 선택시 회색박스에 연동시키기
+    //before 가격 보여지게
+    beforePriceChange: function beforePriceChange() {
+      var targetPrice = $('.tab_section .item_button.choice .price').text();
+      $('.before .price').text(targetPrice);
+    },
+    // 구 기종 선택시 회색박스에 연동시키기 
     listItemConnect: function listItemConnect() {
       var checkedLabel = $('input:radio[name="change_item"]:checked').siblings('label');
       var itemPrice = checkedLabel.closest('.item').find('.price span').text();
       var itemName = checkedLabel.text();
       $('#item_name').text(itemName);
-      $('#item_price').text(itemPrice);
+      $('#item_price').text(itemPrice); // 구 기종 선택시 after price 바뀌게 
+
+      var originalPrice = dev.calcMoney($('.choice .price').text());
+      var discountPrice = dev.calcMoney(itemPrice);
+      var totalPrice = dev.calcUnit(originalPrice - discountPrice);
+      $('.after .price').text(totalPrice);
     },
     listItemChoice: function listItemChoice() {
       //라디오박스 체크 변화될 때마다 아이템의 이름, 가격 가져와 회색박스에 연동
       $("input[name='change_item']:radio").change(function () {
         dev.listItemConnect();
       });
+    },
+    //쉼표, 소숫점 없애기
+    calcMoney: function calcMoney(price) {
+      return price.replace(/[^0-9.]+/g, '');
+    },
+    //금액 소숫점 두자리 + 천단위 마다 쉼표 추가
+    calcUnit: function calcUnit(number) {
+      return Number(number).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
     },
     init: function init() {
       if ($('.section__purchase').length > 0) {
@@ -11107,6 +11129,7 @@ trade = function ($) {
         dev.changeListView();
         dev.listItemConnect();
         dev.listItemChoice();
+        dev.beforePriceChange();
       }
     }
   };

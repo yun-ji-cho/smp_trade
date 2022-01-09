@@ -17,6 +17,8 @@ trade = (function($) {
 						.removeClass('choice');
 					$(this).addClass('choice');
 					dev.tabSectionView();
+					//before 가격 바꾸기
+					dev.beforePriceChange();
 				}
 			});
 		},
@@ -71,9 +73,12 @@ trade = (function($) {
 
 					//구 기종 리스트 보이기
 					dev.changeListView();
+					//before 가격 바꾸기
+					dev.beforePriceChange();
 				}
 			});
 		},
+
 		//기종 리스트 접기/펼치기
 		listfoldToggle: function(button) {
 			$(button)
@@ -106,13 +111,25 @@ trade = (function($) {
 			dev.listItemConnect(); 
 			dev.listItemChoice();
 		},
-		// 구 기종 선택시 회색박스에 연동시키기
+		//before 가격 보여지게
+		beforePriceChange : function(){
+			var targetPrice = $('.tab_section .item_button.choice .price').text();
+			$('.before .price').text(targetPrice);
+		},
+
+		// 구 기종 선택시 회색박스에 연동시키기 
 		listItemConnect : function(){
 			var checkedLabel = $('input:radio[name="change_item"]:checked').siblings('label');
 			var itemPrice = checkedLabel.closest('.item').find('.price span').text();
 			var itemName = checkedLabel.text();
 			$('#item_name').text(itemName);
 			$('#item_price').text(itemPrice);
+			
+			// 구 기종 선택시 after price 바뀌게 
+			var originalPrice = dev.calcMoney($('.choice .price').text());
+			var discountPrice =  dev.calcMoney(itemPrice);
+			var totalPrice = dev.calcUnit(originalPrice - discountPrice);
+			$('.after .price').text(totalPrice);
 		},
 
 		listItemChoice : function(){
@@ -120,8 +137,16 @@ trade = (function($) {
 			$("input[name='change_item']:radio").change(function () {
         dev.listItemConnect();          
 			});
-
 		},
+		//쉼표, 소숫점 없애기
+		calcMoney : function(price){
+			return price.replace(/[^0-9.]+/g, '');
+		},
+		//금액 소숫점 두자리 + 천단위 마다 쉼표 추가
+		calcUnit(number){
+			return Number(number).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+		},
+
 		init: function() {
 			if ($('.section__purchase').length > 0) {
 				dev.tabSectionChange();
@@ -129,6 +154,7 @@ trade = (function($) {
 				dev.changeListView();
 				dev.listItemConnect();
 				dev.listItemChoice();
+				dev.beforePriceChange();
 			}
 		},
 	};
