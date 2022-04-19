@@ -1,0 +1,142 @@
+.blind{
+  overflow:hidden;position:absolute;top:0;left:0;width:1px;height:1px;font-size:0;line-height:0
+}
+
+.search{
+  .frame{
+    @include vw-convert-pc(width, 740);
+    margin: 0 auto;
+  }
+  &_box{
+    .input_box{
+      @include vw-convert-pc(padding, 10 50 10 60);
+      position: relative;
+      &:before{
+        content:'';
+        @include vw-convert-pc(width, 22);
+        @include vw-convert-pc(height, 22);
+        background: url('../images/icon_search.png') center/100% no-repeat;
+        display: block;
+        position: absolute;
+        top:50%;
+        transform: translateY(-50%);
+        @include vw-convert-pc(left, 22);
+      }
+  
+      .btn_clear{
+        font-size:0;
+        @include vw-convert-pc(width, 20);
+        @include vw-convert-pc(height, 20);
+        background: url('../images/icon_clear.png') center/100% no-repeat;
+        display: block;
+        position: absolute;
+        top:50%;
+        transform: translateY(-50%);
+        @include vw-convert-pc(right, 18);
+      }
+    }
+    margin:0 auto;
+    text-align: center;
+    @include vw-convert-pc(width, 618);
+    @include vw-convert-pc(border-radius, 40);
+    border:2px solid #ccc; 
+    @include vw-convert-pc(margin-bottom, 24);
+    
+    @include vw-convert-pc(padding, 0 10);
+
+
+    #searchItem{
+      width:100%;
+      border:none;
+      @include vw-convert-pc(height, 50);
+      @include vw-convert-pc(padding, 15);
+      &::placeholder{
+        color:#757575;
+        @include em-font-size-pc(18);
+      }
+      outline: none;
+    }
+    .list{
+      @include vw-convert-pc(padding, 10 0 10);
+      border-top:1px solid #e5e5e5;
+      display: none;
+      text-align: left;
+      @include vw-convert-pc(max-height, 300);
+      overflow-y: auto;
+      &::-webkit-scrollbar {
+        width:5px;
+      }
+      &::-webkit-scrollbar-track {
+          background-color:transparent;
+      }
+      &::-webkit-scrollbar-thumb {
+          border-radius: 8px;
+          background-color: rgba(0,0,0,0.1);
+      }
+      li{
+        button{
+          width:100%;
+          text-align: left;
+          @include vw-convert-pc(padding, 8 22);
+        }
+      }
+      .head{
+        @include vw-convert-pc(padding, 9 22);
+        font-weight: bold;
+      }
+    }
+    &.active{
+      @include vw-convert-pc(border-radius, 30);
+      #searchItem{
+ 
+        outline:2px dashed rgb(101, 101, 250); 
+      }
+      .list{
+        display: block;
+      }
+    }
+    
+  }
+  &_desc{
+    text-align: center;
+  }
+  
+  .tab{
+    .item{
+      &_button{
+        @include vw-convert-pc(height, 78);
+        font-weight: bold;
+        &.choice{
+          background-color: #fff;
+        }
+      }
+      #SMP{
+        &:before{
+          background-image: url('../images/icon_smartphone.png');
+          @include vw-convert-pc(width, 30);
+          @include vw-convert-pc(height, 49);
+        }
+      }
+      #Tablet{
+        &:before{
+          background-image: url('../images/icon_tablet.png');
+          @include vw-convert-pc(width, 57);
+          @include vw-convert-pc(height, 41);
+        }
+      }
+      #Wearables{
+        &:before{
+          background-image: url('../images/icon_watch.png');
+          @include vw-convert-pc(width, 39);
+          @include vw-convert-pc(height, 49);
+        }
+      }
+      
+
+
+    }
+    &_section{
+    }
+  }
+  
+}

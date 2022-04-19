@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discover how much you can save with Trade-in </title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div id="wrapper">
+        <div id="container" class="search">
+            <section class="section section__purchase">
+                <div class="title">
+                    <h1>Discover how much you can save with Trade-in</h1>
+                </div>
+
+                <h2 class="section_title">1.  Which device do you have?</h2>
+                <div class="frame">
+                    <div class="tab">
+                        <div class="item">
+                            <button class="item_button choice" id="SMP">Smartphone</button>
+                        </div>
+                        <div class="item">
+                            <button class="item_button"  id="Tablet">Tablet</button>
+                        </div>
+                        <div class="item">
+                            <button class="item_button"  id="Wearables">Wearales</button>
+                        </div>
+                    </div>
+                    <div class="search_box">
+                        <div class="input_box">
+                            <label for="searchItem" class="blind" >제품검색</label>
+                            <input type="text" id="searchItem" placeholder="Search (Eg: Galaxy S20, iPhone11)
+                            " class="search_item">
+                            <button type="button" class="btn_clear">clear</button>
+                        </div>
+                        <ul class="list">
+                            <!-- <li>Galaxy S21</li>
+                            <li>Galaxy Z Fold 2</li>
+                            <li>Galaxy S21</li> -->
+                        </ul>
+                    </div>
+                    <p class="search_desc">If your device is not listed, you can find out the value of all eligible<br/> models by selecting Trade In on the product buy page.
+                    </p>
+                    <div class="tab_section">
+
+                    </div>
+                </div>
+            </section>
+            <section class="section section__trade" style="display: none;">
+                <h2 class="section_title">2. Tell us which device you want to trade in.</h2>
+                <p class="section_desc">See below for models with the highest trade-in value.<br>
+                    If you can't find your device, look for more eligible models on our product buy page.</p>
+    
+                <div class="device">
+                    <div class="top">
+                        <p>Your Device</p>
+                        <p class="estimatetd">Estimated <br>Trade In Value</p>
+                    </div>
+                    <button type="button" class="checked-item" onclick="TRADE.listfoldToggle(this)">
+                        <p id="item_name"></p>
+                        <p class="price">Up to <span id="item_price"></span></p>
+                    </button>
+                    <ul class="list">
+                        <!-- <li class="item">
+                            <div class="radio-btn">
+                                <input type="radio" id="galaxy_fold_5G" name="phone">
+                                <label for="galaxy_fold_5G">Galaxy Fold 5G</label>
+                            </div>
+                            <p class="price">Up to <span>$000</span></p>
+                        </li> -->
+                    </ul>
+                </div>   
+                <div class="result">
+                    <p class="before">Price before trade-in : <span class="price"></span></p>
+                    <p class="after">Final price after trade-in : £<span class="price"></span></p>
+                </div> 
+                <div class="button_wrap">
+                    <a href="#" class="ctaButton button">Buy now</a>
+                </div>
+            </section>
+        </div>
+    </div>
+    <script type="text/javascript" src="js/search.js"></script>
+</body>
+</html>

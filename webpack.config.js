@@ -10,6 +10,7 @@ module.exports = {
 	},
 	entry: {
 		main: ['./src/js/main.js'],
+		search: ['./src/js/search.js'],
 		styles: ['./src/scss/style.scss'],
 	},
 	output: {

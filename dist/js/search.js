@@ -82,7 +82,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 0);
+/******/ 	return __webpack_require__(__webpack_require__.s = 1);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -10980,25 +10980,901 @@ return jQuery;
 
 /***/ }),
 
-/***/ "./src/js/main.js":
+/***/ "./src/js/json.js":
 /*!************************!*\
-  !*** ./src/js/main.js ***!
+  !*** ./src/js/json.js ***!
   \************************/
+/*! exports provided: infoList, smartphone, tablet, smartwatch */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "infoList", function() { return infoList; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "smartphone", function() { return smartphone; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "tablet", function() { return tablet; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "smartwatch", function() { return smartwatch; });
+// JSON
+// Common information (image path by model, price, purchase link url)
+var infoList = [{
+  category: 'smartphone',
+  model: 'Galaxy Z Fold3 (256GB)',
+  image: 'https://images.samsung.com/is/image/samsung/p6pim/uk/2108/gallery/uk-galaxy-z-fold3-f926-5g-sm-f926bzkdeua-thumb-477352697?$160_160_PNG$',
+  price: '1,599.00',
+  url: 'https://www.samsung.com/uk/smartphones/galaxy-z-fold3-5g/buy/',
+  suggested: true
+}, {
+  category: 'smartphone',
+  model: 'Galaxy Z Flip3 (128GB)',
+  image: 'https://images.samsung.com/is/image/samsung/p6pim/uk/sm-f711bzebeua/gallery/uk-galaxy-z-flip3-f711-5g-397170-sm-f711bzebeua-thumb-516130930?$160_160_PNG$',
+  price: '949.00',
+  url: 'https://www.samsung.com/uk/smartphones/galaxy-z-flip3-5g/buy/',
+  suggested: true
+}, {
+  category: 'smartphone',
+  model: 'S22 Ultra 5G (128GB)',
+  image: 'https://stg-images.samsung.com/is/image/samsung/assets/uk/2202/pf/local/uk/trade-in/burgundy_s22ultra_device.png',
+  price: '1,149.00',
+  url: 'https://www.samsung.com/uk/smartphones/galaxy-s22-ultra/buy/?modelCode=SM-S908BDRDEUB',
+  suggested: true
+}, {
+  category: 'tablet',
+  model: 'Galaxy Tab S8 Ultra (128GB)',
+  image: 'https://stg-images.samsung.com/is/image/samsung/assets/uk/2202/pf/local/uk/trade-in/skittle_s8_ultra.png',
+  price: '999.00',
+  url: 'https://www.samsung.com/uk/tablets/galaxy-tab-s8/buy/?modelCode=SM-X900NZAAEUA',
+  suggested: true
+}, {
+  category: 'tablet',
+  model: 'Galaxy Tab S7 FE (64GB, Wifi)',
+  image: 'https://images.samsung.com/is/image/samsung/p6pim/uk/sm-t733nzsaeua/gallery/uk-galaxy-tab-s7-fe-t733-sm-t733nzsaeua-thumb-490806996?$160_160_PNG$',
+  price: '449.00',
+  url: 'https://www.samsung.com/uk/tablets/galaxy-tab-s7-fe/buy/?modelCode=SM-T733NZSAEUA',
+  suggested: true
+}, {
+  category: 'smartwatch',
+  model: 'Watch4 Classic (42mm, BT)',
+  image: 'https://images.samsung.com/is/image/samsung/p6pim/uk/2108/gallery/uk-galaxy-watch4-classic-400142-sm-r880nzkaeua-thumb-481824165?$160_160_PNG$',
+  price: '274.00',
+  url: 'https://www.samsung.com/uk/watches/galaxy-watch/galaxy-watch4-classic-black-bt-sm-r880nzkaeua/buy/',
+  suggested: true
+}, {
+  category: 'smartwatch',
+  model: 'Watch4 (40mm, BT)',
+  image: 'https://images.samsung.com/is/image/samsung/p6pim/uk/2108/gallery/uk-galaxy-watch4-400170-sm-r860nzdaeua-thumb-481838692?$160_160_PNG$',
+  price: '199.00',
+  url: 'https://www.samsung.com/uk/watches/galaxy-watch/galaxy-watch4-pink-gold-bt-sm-r860nzdaeua/buy/',
+  suggested: true
+}]; // Information by category
+
+var smartphone = [{
+  model: 'S22 Ultra 5G (128GB)',
+  brand: 'Samsung',
+  device: 'Galaxy S21 Ultra 5G',
+  value: '580.00'
+}, {
+  model: 'S22 Ultra 5G (128GB)',
+  brand: 'Samsung',
+  device: 'Galaxy Fold 3 5G',
+  value: '600.00'
+}, {
+  model: 'S22 Ultra 5G (128GB)',
+  brand: 'Samsung',
+  device: 'Galaxy Flip 3 5G',
+  value: '570.00'
+}, {
+  model: 'S22 Ultra 5G (128GB)',
+  brand: 'Samsung',
+  device: 'Galaxy Z Fold2 5G',
+  value: '570.00'
+}, {
+  model: 'S22 Ultra 5G (128GB)',
+  brand: 'Samsung',
+  device: 'Galaxy Note 20 Ultra 5G',
+  value: '570.00'
+}, {
+  model: 'S22 Ultra 5G (128GB)',
+  brand: 'Samsung',
+  device: 'Galaxy S21 Plus 5G',
+  value: '560.00'
+}, {
+  model: 'S22 Ultra 5G (128GB)',
+  brand: 'Samsung',
+  device: 'Galaxy S21 5G',
+  value: '530.00'
+}, {
+  model: 'S22 Ultra 5G (128GB)',
+  brand: 'Samsung',
+  device: 'Galaxy S20 Ultra 5G',
+  value: '500.00'
+}, {
+  model: 'S22 Ultra 5G (128GB)',
+  brand: 'Samsung',
+  device: 'Galaxy Note 20 5G',
+  value: '510.00'
+}, {
+  model: 'S22 Ultra 5G (128GB)',
+  brand: 'Samsung',
+  device: 'Galaxy S20 Plus 5G',
+  value: '460.00'
+}, {
+  model: 'S22 Ultra 5G (128GB)',
+  brand: 'Samsung',
+  device: 'Galaxy Note 20',
+  value: '500.00'
+}, {
+  model: 'S22 Ultra 5G (128GB)',
+  brand: 'Samsung',
+  device: 'Galaxy S20 Plus',
+  value: '460.00'
+}, {
+  model: 'S22 Ultra 5G (128GB)',
+  brand: 'Samsung',
+  device: 'Galaxy S20 Plus BTS Edition',
+  value: '460.00'
+}, {
+  model: 'S22 Ultra 5G (128GB)',
+  brand: 'Samsung',
+  device: 'Galaxy S20 5G',
+  value: '440.00'
+}, {
+  model: 'S22 Ultra 5G (128GB)',
+  brand: 'Samsung',
+  device: 'Galaxy Z Flip 5G',
+  value: '470.00'
+}, {
+  model: 'S22 Ultra 5G (128GB)',
+  brand: 'Samsung',
+  device: 'Galaxy Z Fold 5G',
+  value: '470.00'
+}, {
+  model: 'S22 Ultra 5G (128GB)',
+  brand: 'Samsung',
+  device: 'Galaxy Z Flip',
+  value: '450.00'
+}, {
+  model: 'S22 Ultra 5G (128GB)',
+  brand: 'Samsung',
+  device: 'Galaxy Note 10 Plus 5G',
+  value: '440.00'
+}, {
+  model: 'S22 Ultra 5G (128GB)',
+  brand: 'A-Brand',
+  device: 'iPhone XS Max',
+  value: '190.00'
+}, {
+  model: 'S22 Ultra 5G (128GB)',
+  brand: 'A-Brand',
+  device: 'iPhone XS',
+  value: '170.00'
+}, {
+  model: 'S22 Ultra 5G (128GB)',
+  brand: 'Samsung',
+  device: 'Galaxy S20 5G FE',
+  value: '400.00'
+}, {
+  model: 'S22 Ultra 5G (128GB)',
+  brand: 'Samsung',
+  device: 'Galaxy S20 (Fan Edition)',
+  value: '400.00'
+}, {
+  model: 'S22 Ultra 5G (128GB)',
+  brand: 'Huawei',
+  device: 'P40 Pro+',
+  value: '430.00'
+}, {
+  model: 'Galaxy Z Flip3 (128GB)',
+  brand: 'Samsung',
+  device: 'Galaxy S21 Plus 5G',
+  value: '460.00'
+}, {
+  model: 'Galaxy Z Flip3 (128GB)',
+  brand: 'Samsung',
+  device: 'Galaxy Z Fold2 5G',
+  value: '460.00'
+}, {
+  model: 'Galaxy Z Flip3 (128GB)',
+  brand: 'Samsung',
+  device: 'Galaxy Note 20 Ultra 5G',
+  value: '460.00'
+}, {
+  model: 'Galaxy Z Flip3 (128GB)',
+  brand: 'Samsung',
+  device: 'Galaxy S21 5G',
+  value: '440.00'
+}, {
+  model: 'Galaxy Z Flip3 (128GB)',
+  brand: 'Samsung',
+  device: 'Galaxy Note 20 Ultra',
+  value: '430.00'
+}, {
+  model: 'Galaxy Z Flip3 (128GB)',
+  brand: 'Samsung',
+  device: 'Galaxy S20 Ultra 5G',
+  value: '400.00'
+}, {
+  model: 'Galaxy Z Flip3 (128GB)',
+  brand: 'Samsung',
+  device: 'Galaxy Note 20 5G',
+  value: '390.00'
+}, {
+  model: 'Galaxy Z Flip3 (128GB)',
+  brand: 'Samsung',
+  device: 'Galaxy S20 Plus 5G',
+  value: '360.00'
+}, {
+  model: 'Galaxy Z Flip3 (128GB)',
+  brand: 'Samsung',
+  device: 'Galaxy Note 20',
+  value: '350.00'
+}, {
+  model: 'Galaxy Z Flip3 (128GB)',
+  brand: 'Samsung',
+  device: 'Galaxy S20 Plus',
+  value: '350.00'
+}, {
+  model: 'Galaxy Z Flip3 (128GB)',
+  brand: 'Samsung',
+  device: 'Galaxy S20 Plus BTS Edition',
+  value: '340.00'
+}, {
+  model: 'Galaxy Z Flip3 (128GB)',
+  brand: 'Samsung',
+  device: 'Galaxy S20 5G',
+  value: '330.00'
+}, {
+  model: 'Galaxy Z Flip3 (128GB)',
+  brand: 'Samsung',
+  device: 'Galaxy S20',
+  value: '320.00'
+}, {
+  model: 'Galaxy Z Flip3 (128GB)',
+  brand: 'Samsung',
+  device: 'Galaxy Z Flip 5G',
+  value: '310.00'
+}, {
+  model: 'Galaxy Z Flip3 (128GB)',
+  brand: 'Samsung',
+  device: 'Galaxy Z Fold 5G',
+  value: '310.00'
+}, {
+  model: 'Galaxy Z Flip3 (128GB)',
+  brand: 'Samsung',
+  device: 'Galaxy Z Flip',
+  value: '290.00'
+}, {
+  model: 'Galaxy Z Flip3 (128GB)',
+  brand: 'Samsung',
+  device: 'Galaxy Note 10 Plus 5G',
+  value: '290.00'
+}, {
+  model: 'Galaxy Z Flip3 (128GB)',
+  brand: 'A-Brand',
+  device: 'iPhone XS Max',
+  value: '280.00'
+}, {
+  model: 'Galaxy Z Flip3 (128GB)',
+  brand: 'Samsung',
+  device: 'Galaxy Note 10 Plus',
+  value: '270.00'
+}, {
+  model: 'Galaxy Z Flip3 (128GB)',
+  brand: 'A-Brand',
+  device: 'iPhone XS',
+  value: '160.00'
+}, {
+  model: 'Galaxy Z Flip3 (128GB)',
+  brand: 'Samsung',
+  device: 'Galaxy Note 10',
+  value: '260.00'
+}, {
+  model: 'Galaxy Z Flip3 (128GB)',
+  brand: 'Samsung',
+  device: 'Galaxy S20 5G FE',
+  value: '260.00'
+}, {
+  model: 'Galaxy Z Flip3 (128GB)',
+  brand: 'Samsung',
+  device: 'Galaxy S20 (Fan Edition)',
+  value: '260.00'
+}, {
+  model: 'Galaxy Z Flip3 (128GB)',
+  brand: 'Huawei',
+  device: 'P40 Pro+',
+  value: '400.00'
+}, {
+  model: 'Galaxy Z Flip3 (128GB)',
+  brand: 'Samsung',
+  device: 'Galaxy S10 Plus',
+  value: '240.00'
+}, {
+  model: 'Galaxy Z Flip3 (128GB)',
+  brand: 'A-Brand',
+  device: 'iPhone XR',
+  value: '240.00'
+}, {
+  model: 'Galaxy Z Flip3 (128GB)',
+  brand: 'Samsung',
+  device: 'Galaxy S10 5G',
+  value: '230.00'
+}, {
+  model: 'Galaxy Z Flip3 (128GB)',
+  brand: 'Samsung',
+  device: 'Galaxy S10',
+  value: '230.00'
+}, {
+  model: 'Galaxy Z Flip3 (128GB)',
+  brand: 'A-Brand',
+  device: 'iPhone X',
+  value: '230.00'
+}, {
+  model: 'Galaxy Z Flip3 (128GB)',
+  brand: 'Huawei',
+  device: 'P40 Pro',
+  value: '230.00'
+}, {
+  model: 'Galaxy Z Flip3 (128GB)',
+  brand: 'Samsung',
+  device: 'Galaxy Note 10 Lite',
+  value: '220.00'
+}, {
+  model: 'Galaxy Z Flip3 (128GB)',
+  brand: 'Samsung',
+  device: 'Galaxy S10 Lite',
+  value: '210.00'
+}, {
+  model: 'Galaxy Z Flip3 (128GB)',
+  brand: 'A-Brand',
+  device: 'iPhone SE 2020',
+  value: '210.00'
+}, {
+  model: 'Galaxy Z Flip3 (128GB)',
+  brand: 'A-Brand',
+  device: 'iPhone 8 Plus',
+  value: '200.00'
+}, {
+  model: 'Galaxy Z Flip3 (128GB)',
+  brand: 'Google',
+  device: 'Pixel 5',
+  value: '200.00'
+}, {
+  model: 'Galaxy Z Flip3 (128GB)',
+  brand: 'Huawei',
+  device: 'P30 Pro',
+  value: '200.00'
+}, {
+  model: 'Galaxy Z Fold3 (256GB)',
+  brand: 'Samsung',
+  device: 'Galaxy S21 Ultra 5G',
+  value: '500.00'
+}, {
+  model: 'Galaxy Z Fold3 (256GB)',
+  brand: 'Samsung',
+  device: 'Galaxy S21 Plus 5G',
+  value: '410.00'
+}, {
+  model: 'Galaxy Z Fold3 (256GB)',
+  brand: 'Samsung',
+  device: 'Galaxy Z Fold2 5G',
+  value: '410.00'
+}, {
+  model: 'Galaxy Z Fold3 (256GB)',
+  brand: 'Samsung',
+  device: 'Galaxy Note 20 Ultra 5G',
+  value: '410.00'
+}, {
+  model: 'Galaxy Z Fold3 (256GB)',
+  brand: 'Samsung',
+  device: 'Galaxy S21 5G',
+  value: '390.00'
+}, {
+  model: 'Galaxy Z Fold3 (256GB)',
+  brand: 'Samsung',
+  device: 'Galaxy Note 20 Ultra',
+  value: '380.00'
+}, {
+  model: 'Galaxy Z Fold3 (256GB)',
+  brand: 'Samsung',
+  device: 'Galaxy S20 Ultra 5G',
+  value: '350.00'
+}, {
+  model: 'Galaxy Z Fold3 (256GB)',
+  brand: 'Samsung',
+  device: 'Galaxy Note 20 5G',
+  value: '340.00'
+}, {
+  model: 'Galaxy Z Fold3 (256GB)',
+  brand: 'Samsung',
+  device: 'Galaxy S20 Plus 5G',
+  value: '310.00'
+}, {
+  model: 'Galaxy Z Fold3 (256GB)',
+  brand: 'Samsung',
+  device: 'Galaxy Note 20',
+  value: '300.00'
+}, {
+  model: 'Galaxy Z Fold3 (256GB)',
+  brand: 'Samsung',
+  device: 'Galaxy S20 Plus',
+  value: '300.00'
+}, {
+  model: 'Galaxy Z Fold3 (256GB)',
+  brand: 'Samsung',
+  device: 'Galaxy S20 Plus BTS Edition',
+  value: '290.00'
+}, {
+  model: 'Galaxy Z Fold3 (256GB)',
+  brand: 'Samsung',
+  device: 'Galaxy S20 5G',
+  value: '280.00'
+}, {
+  model: 'Galaxy Z Fold3 (256GB)',
+  brand: 'Samsung',
+  device: 'Galaxy S20',
+  value: '270.00'
+}, {
+  model: 'Galaxy Z Fold3 (256GB)',
+  brand: 'Samsung',
+  device: 'Galaxy Z Flip 5G',
+  value: '260.00'
+}, {
+  model: 'Galaxy Z Fold3 (256GB)',
+  brand: 'Samsung',
+  device: 'Galaxy Z Fold 5G',
+  value: '260.00'
+}, {
+  model: 'Galaxy Z Fold3 (256GB)',
+  brand: 'Samsung',
+  device: 'Galaxy Z Flip',
+  value: '240.00'
+}, {
+  model: 'Galaxy Z Fold3 (256GB)',
+  brand: 'Samsung',
+  device: 'Galaxy Note 10 Plus 5G',
+  value: '240.00'
+}, {
+  model: 'Galaxy Z Fold3 (256GB)',
+  brand: 'A-Brand',
+  device: 'iPhone XS Max',
+  value: '230.00'
+}, {
+  model: 'Galaxy Z Fold3 (256GB)',
+  brand: 'Samsung',
+  device: 'Galaxy Note 10 Plus',
+  value: '220.00'
+}, {
+  model: 'Galaxy Z Fold3 (256GB)',
+  brand: 'A-Brand',
+  device: 'iPhone XS',
+  value: '220.00'
+}, {
+  model: 'Galaxy Z Fold3 (256GB)',
+  brand: 'Samsung',
+  device: 'Galaxy Note 10',
+  value: '210.00'
+}, {
+  model: 'Galaxy Z Fold3 (256GB)',
+  brand: 'Samsung',
+  device: 'Galaxy S20 5G FE',
+  value: '210.00'
+}, {
+  model: 'Galaxy Z Fold3 (256GB)',
+  brand: 'Samsung',
+  device: 'Galaxy S20 (Fan Edition)',
+  value: '210.00'
+}, {
+  model: 'Galaxy Z Fold3 (256GB)',
+  brand: 'Huawei',
+  device: 'P40 Pro+',
+  value: '210.00'
+}];
+var tablet = [{
+  model: 'Galaxy Tab S8 Ultra (128GB)',
+  brand: 'Samsung',
+  device: 'Galaxy Tab S6 WiFi ',
+  value: '180.00'
+}, {
+  model: 'Galaxy Tab S8 Ultra (128GB)',
+  brand: 'Samsung',
+  device: 'Galaxy Tab S6 LTE ',
+  value: '180.00'
+}, {
+  model: 'Galaxy Tab S8 Ultra (128GB)',
+  brand: 'A-Brand',
+  device: 'iPad Pro 5 (2021) WiFi 12.9',
+  value: '250.00'
+}, {
+  model: 'Galaxy Tab S8 Ultra (128GB)',
+  brand: 'A-Brand',
+  device: 'iPad Pro 4 12.9 WiFi 4G (2020)',
+  value: '250.00'
+}, {
+  model: 'Galaxy Tab S8 Ultra (128GB)',
+  brand: 'A-Brand',
+  device: 'iPad Pro 5 (2021) WiFi 4G 12.9',
+  value: '250.00'
+}, {
+  model: 'Galaxy Tab S8 Ultra (128GB)',
+  brand: 'A-Brand',
+  device: 'iPad Pro 4 12.9 WiFi (2020)',
+  value: '250.00'
+}, {
+  model: 'Galaxy Tab S8 Ultra (128GB)',
+  brand: 'A-Brand',
+  device: 'iPad Pro 3 (2021) WiFi 4G 11.0',
+  value: '250.00'
+}, {
+  model: 'Galaxy Tab S8 Ultra (128GB)',
+  brand: 'A-Brand',
+  device: 'iPad Pro 3 (2018) WiFi 4G 12.9',
+  value: '250.00'
+}, {
+  model: 'Galaxy Tab S8 Ultra (128GB)',
+  brand: 'A-Brand',
+  device: 'iPad Pro 3 (2018) WiFi 12.9',
+  value: '250.00'
+}, {
+  model: 'Galaxy Tab S8 Ultra (128GB)',
+  brand: 'A-Brand',
+  device: 'iPad Pro 3 (2021) WiFi 11.0',
+  value: '190.00'
+}, {
+  model: 'Galaxy Tab S8 Ultra (128GB)',
+  brand: 'A-Brand',
+  device: 'iPad Pro 2 (2017) WiFi 4G 12.9',
+  value: '210.00'
+}, {
+  model: 'Galaxy Tab S8 Ultra (128GB)',
+  brand: 'A-Brand',
+  device: 'iPad Pro 2 (2017) WiFi 12.9',
+  value: '180.00'
+}, {
+  model: 'Galaxy Tab S8 Ultra (128GB)',
+  brand: 'A-Brand',
+  device: 'iPad Pro (2018) WiFi 11.0',
+  value: '180.00'
+}, {
+  model: 'Galaxy Tab S8 Ultra (128GB)',
+  brand: 'A-Brand',
+  device: 'iPad Pro (2018) WiFi 4G 11.0',
+  value: '180.00'
+}, {
+  model: 'Galaxy Tab S8 Ultra (128GB)',
+  brand: 'A-Brand',
+  device: 'iPad Air 4 (2020) WiFi 4G',
+  value: '160.00'
+}, {
+  model: 'Galaxy Tab S8 Ultra (128GB)',
+  brand: 'A-Brand',
+  device: 'iPad Air 4 (2020) WiFi',
+  value: '150.00'
+}, {
+  model: 'Galaxy Tab S8 Ultra (128GB)',
+  brand: 'Samsung',
+  device: 'Galaxy Tab S6 WiFi ',
+  value: '170.00'
+}, {
+  model: 'Galaxy Tab S8 Ultra (128GB)',
+  brand: 'Samsung',
+  device: 'Galaxy Tab S6 LTE',
+  value: '170.00'
+}, {
+  model: 'Galaxy Tab S8 Ultra (128GB)',
+  brand: 'Samsung',
+  device: 'Galaxy Tab S7 Plus 5G',
+  value: '250.00'
+}, {
+  model: 'Galaxy Tab S8 Ultra (128GB)',
+  brand: 'Samsung',
+  device: 'Galaxy Tab S7 Plus Wifi',
+  value: '250.00'
+}, {
+  model: 'Galaxy Tab S8 Ultra (128GB)',
+  brand: 'Samsung',
+  device: 'Galaxy Tab S7 LTE',
+  value: '250.00'
+}, {
+  model: 'Galaxy Tab S8 Ultra (128GB)',
+  brand: 'Samsung',
+  device: 'Galaxy Tab S7 Wifi',
+  value: '250.00'
+}, {
+  model: 'Galaxy Tab S7 FE (64GB, Wifi)',
+  brand: 'Samsung',
+  device: 'Galaxy Tab S6 LTE ',
+  value: '175.00'
+}, {
+  model: 'Galaxy Tab S7 FE (64GB, Wifi)',
+  brand: 'A-Brand',
+  device: 'iPad Pro 3 (2021) WiFi 4G 11.0',
+  value: '250.00'
+}, {
+  model: 'Galaxy Tab S7 FE (64GB, Wifi)',
+  brand: 'A-Brand',
+  device: 'iPad Pro 3 (2018) WiFi 4G 12.9',
+  value: '250.00'
+}, {
+  model: 'Galaxy Tab S7 FE (64GB, Wifi)',
+  brand: 'A-Brand',
+  device: 'iPad Pro 3 (2018) WiFi 12.9',
+  value: '240.00'
+}, {
+  model: 'Galaxy Tab S7 FE (64GB, Wifi)',
+  brand: 'A-Brand',
+  device: 'iPad Pro 3 (2021) WiFi 11.0',
+  value: '240.00'
+}, {
+  model: 'Galaxy Tab S7 FE (64GB, Wifi)',
+  brand: 'A-Brand',
+  device: 'iPad Pro 2 (2017) WiFi 4G 12.9',
+  value: '180.00'
+}, {
+  model: 'Galaxy Tab S7 FE (64GB, Wifi)',
+  brand: 'A-Brand',
+  device: 'iPad Pro 2 (2017) WiFi 12.9',
+  value: '190.00'
+}, {
+  model: 'Galaxy Tab S7 FE (64GB, Wifi)',
+  brand: 'A-Brand',
+  device: 'iPad Pro (2018) WiFi 11.0',
+  value: '180.00'
+}, {
+  model: 'Galaxy Tab S7 FE (64GB, Wifi)',
+  brand: 'A-Brand',
+  device: 'iPad Pro (2018) WiFi 4G 11.0',
+  value: '180.00'
+}, {
+  model: 'Galaxy Tab S7 FE (64GB, Wifi)',
+  brand: 'A-Brand',
+  device: 'iPad Air 4 (2020) WiFi 4G',
+  value: '160.00'
+}, {
+  model: 'Galaxy Tab S7 FE (64GB, Wifi)',
+  brand: 'A-Brand',
+  device: 'iPad Air 4 (2020) WiFi',
+  value: '150.00'
+}];
+var smartwatch = [{
+  model: 'Watch4 (40mm, BT)',
+  brand: 'Samsung',
+  device: 'Galaxy Watch 3 45mm 4G',
+  value: '80.00'
+}, {
+  model: 'Watch4 (40mm, BT)',
+  brand: 'Samsung',
+  device: 'Galaxy Watch 3 45mm',
+  value: '80.00'
+}, {
+  model: 'Watch4 (40mm, BT)',
+  brand: 'Samsung',
+  device: 'Galaxy Watch 3 41mm',
+  value: '70.00'
+}, {
+  model: 'Watch4 (40mm, BT)',
+  brand: 'Samsung',
+  device: 'Galaxy Watch 3 41mm 4G',
+  value: '70.00'
+}, {
+  model: 'Watch4 (40mm, BT)',
+  brand: 'Samsung',
+  device: 'Galaxy Watch Active 2 44mm',
+  value: '60.00'
+}, {
+  model: 'Watch4 (40mm, BT)',
+  brand: 'Samsung',
+  device: 'Galaxy Watch Active 2 44mm Cellular',
+  value: '60.00'
+}, {
+  model: 'Watch4 (40mm, BT)',
+  brand: 'Samsung',
+  device: 'Galaxy Watch Active 2 40mm Cellular',
+  value: '50.00'
+}, {
+  model: 'Watch4 (40mm, BT)',
+  brand: 'Samsung',
+  device: 'Galaxy Watch Active 2 40mm',
+  value: '50.00'
+}, {
+  model: 'Watch4 (40mm, BT)',
+  brand: 'A-Brand',
+  device: 'Watch Series 6 40mm LTE  32GB',
+  value: '140.00'
+}, {
+  model: 'Watch4 (40mm, BT)',
+  brand: 'A-Brand',
+  device: 'Watch Series 6 40mm GPS  32GB',
+  value: '140.00'
+}, {
+  model: 'Watch4 (40mm, BT)',
+  brand: 'A-Brand',
+  device: 'Watch Series 5 44mm LTE  32GB',
+  value: '130.00'
+}, {
+  model: 'Watch4 (40mm, BT)',
+  brand: 'A-Brand',
+  device: 'Watch Series 5 44mm GPS  32GB',
+  value: '130.00'
+}, {
+  model: 'Watch4 (40mm, BT)',
+  brand: 'A-Brand',
+  device: 'Watch Series 5 40mm GPS  32GB',
+  value: '120.00'
+}, {
+  model: 'Watch4 (40mm, BT)',
+  brand: 'A-Brand',
+  device: 'Watch Series 5 40mm LTE  32GB',
+  value: '120.00'
+}, {
+  model: 'Watch4 (40mm, BT)',
+  brand: 'A-Brand',
+  device: 'Watch Series 4 44mm GPS',
+  value: '70.00'
+}, {
+  model: 'Watch4 (40mm, BT)',
+  brand: 'A-Brand',
+  device: 'Watch Series 4 40mm GPS',
+  value: '70.00'
+}, {
+  model: 'Watch4 (40mm, BT)',
+  brand: 'A-Brand',
+  device: 'Watch Series 4 40mm Cell',
+  value: '70.00'
+}, {
+  model: 'Watch4 (40mm, BT)',
+  brand: 'A-Brand',
+  device: 'Watch Series 4 44mm Cell',
+  value: '70.00'
+}, {
+  model: 'Watch4 (40mm, BT)',
+  brand: 'Garmin',
+  device: 'Quatix5',
+  value: '60.00'
+}, {
+  model: 'Watch4 (40mm, BT)',
+  brand: 'Garmin',
+  device: 'Forerunner 935',
+  value: '50.00'
+}, {
+  model: 'Watch4 (40mm, BT)',
+  brand: 'oppo',
+  device: 'OPPO Watch Wifi 41mm  8GB',
+  value: '50.00'
+}, {
+  model: 'Watch4 Classic (42mm, BT)',
+  brand: 'Samsung',
+  device: 'Galaxy Watch 3 45mm 4G - R845F',
+  value: '80'
+}, {
+  model: 'Watch4 Classic (42mm, BT)',
+  brand: 'Samsung',
+  device: 'Galaxy Watch 3 45mm - R840N',
+  value: '80'
+}, {
+  model: 'Watch4 Classic (42mm, BT)',
+  brand: 'Samsung',
+  device: 'Galaxy Watch 3 41mm - R850N',
+  value: '70'
+}, {
+  model: 'Watch4 Classic (42mm, BT)',
+  brand: 'Samsung',
+  device: 'Galaxy Watch 3 41mm 4G - R855F',
+  value: '70'
+}, {
+  model: 'Watch4 Classic (42mm, BT)',
+  brand: 'Samsung',
+  device: 'Galaxy Watch Active 2 44mm - SM-R820 - 4GB',
+  value: '60'
+}, {
+  model: 'Watch4 Classic (42mm, BT)',
+  brand: 'Samsung',
+  device: 'Galaxy Watch Active 2 44mm Cellular - SM-R825 - 4GB',
+  value: '60'
+}, {
+  model: 'Watch4 Classic (42mm, BT)',
+  brand: 'Samsung',
+  device: 'Galaxy Watch Active 2 40mm Cellular - SM-R835 - 4GB',
+  value: '50'
+}, {
+  model: 'Watch4 Classic (42mm, BT)',
+  brand: 'Samsung',
+  device: 'Galaxy Watch Active 2 40mm - SM-R830 - 4GB',
+  value: '50'
+}, {
+  model: 'Watch4 Classic (42mm, BT)',
+  brand: 'A-Brand',
+  device: 'Watch Series 6 44mm GPS 32GB',
+  value: '150.00'
+}, {
+  model: 'Watch4 Classic (42mm, BT)',
+  brand: 'A-Brand',
+  device: 'Watch Series 6 44mm LTE 32GB',
+  value: '150.00'
+}, {
+  model: 'Watch4 Classic (42mm, BT)',
+  brand: 'A-Brand',
+  device: 'Watch Series 6 40mm LTE 32GB',
+  value: '140.00'
+}, {
+  model: 'Watch4 Classic (42mm, BT)',
+  brand: 'A-Brand',
+  device: 'Watch Series 6 40mm GPS 32GB',
+  value: '140.00'
+}, {
+  model: 'Watch4 Classic (42mm, BT)',
+  brand: 'A-Brand',
+  device: 'Watch Series 5 44mm LTE 32GB',
+  value: '130.00'
+}, {
+  model: 'Watch4 Classic (42mm, BT)',
+  brand: 'A-Brand',
+  device: 'Watch Series 5 44mm GPS 32GB',
+  value: '130.00'
+}, {
+  model: 'Watch4 Classic (42mm, BT)',
+  brand: 'A-Brand',
+  device: 'Watch Series 5 40mm GPS 32GB',
+  value: '120.00'
+}, {
+  model: 'Watch4 Classic (42mm, BT)',
+  brand: 'A-Brand',
+  device: 'Watch Series 5 40mm LTE 32GB',
+  value: '120.00'
+}, {
+  model: 'Watch4 Classic (42mm, BT)',
+  brand: 'A-Brand',
+  device: 'Watch Series 4 44mm GPS',
+  value: '70.00'
+}, {
+  model: 'Watch4 Classic (42mm, BT)',
+  brand: 'A-Brand',
+  device: 'Watch Series 4 40mm GPS',
+  value: '70.00'
+}, {
+  model: 'Watch4 Classic (42mm, BT)',
+  brand: 'A-Brand',
+  device: 'Watch Series 4 40mm Cell',
+  value: '70.00'
+}, {
+  model: 'Watch4 Classic (42mm, BT)',
+  brand: 'A-Brand',
+  device: 'Watch Series 4 44mm Cell',
+  value: '70.00'
+}, {
+  model: 'Watch4 Classic (42mm, BT)',
+  brand: 'Garmin',
+  device: 'Quatix5',
+  value: '60.00'
+}, {
+  model: 'Watch4 Classic (42mm, BT)',
+  brand: 'Garmin',
+  device: 'Forerunner 935',
+  value: '50.00'
+}, {
+  model: 'Watch4 Classic (42mm, BT)',
+  brand: 'oppo',
+  device: 'OPPO Watch Wifi 41mm - 8GB',
+  value: '50.00'
+}];
+
+
+/***/ }),
+
+/***/ "./src/js/search.js":
+/*!**************************!*\
+  !*** ./src/js/search.js ***!
+  \**************************/
 /*! no exports provided */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _new_item_data_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./new_item_data.js */ "./src/js/new_item_data.js");
-/* harmony import */ var _return_item_data_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./return_item_data.js */ "./src/js/return_item_data.js");
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _json_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./json.js */ "./src/js/json.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_1__);
 
 
+var SEARCH = window.SEARCH || {};
 
-var trade = window.trade || {};
-
-trade = function ($) {
+window.SEARCH = function ($) {
   'use strict';
 
   var dev = {
@@ -11009,1450 +11885,96 @@ trade = function ($) {
         if (!$(this).hasClass('choice')) {
           $(this).closest('.tab').find('.item_button').removeClass('choice');
           $(this).addClass('choice');
-          dev.tabSectionView(); //before 가격 바꾸기
-
-          dev.beforePriceChange();
+          dev.drawList();
         }
       });
     },
-    //탭 버튼 클릭시 신상품 리스트 보여지게
-    tabSectionView: function tabSectionView() {
-      var choiceTab = $('.tab button.choice');
-      var targetId = choiceTab.attr('id');
-      var category = _new_item_data_js__WEBPACK_IMPORTED_MODULE_0__["itemArray"].filter(function (item) {
-        return item.category === targetId;
-      });
-      var targetSection = $('.tab_section'); // 배열 아이템 목록 html 로 넣기
+    drawList: function drawList(wordList) {
+      var $choiceTab = $('.item_button.choice').attr('id');
+      var categoryArr = $choiceTab === 'SMP' ? _json_js__WEBPACK_IMPORTED_MODULE_0__["smartphone"] : $choiceTab === 'Tablet' ? _json_js__WEBPACK_IMPORTED_MODULE_0__["tablet"] : _json_js__WEBPACK_IMPORTED_MODULE_0__["smartwatch"];
+      var $list = $('.search_box .list');
+      $list.empty();
+      $list.scrollTop(0);
+      var newList;
 
-      var itemGroupHtml = '';
-      category.forEach(function (item, index) {
-        var addClass = index === 0 ? 'choice' : '';
-        var itemHtml = '<div class="item"><button class="item_button ' + addClass + '">';
-        itemHtml += '<img src="' + item['IMAGE URL'] + '" data-url="' + item['CTA Landing'] + '" alt="">';
-        itemHtml += '<p class="item_name">' + item.NAME + '</p><p class="price">' + item.PRICE + '</p>';
-        itemHtml += '</button></div>';
-        itemGroupHtml += itemHtml;
-      });
-      targetSection.html(itemGroupHtml); //신상품 리스트 보여진 뒤
+      if (wordList) {
+        var wordArr = wordList.filter(function (item) {
+          return item !== '';
+        });
+        var _newList = [];
 
-      dev.itemChoiceChange(); //tab 클릭시 첫번째 아이템이 BUY NOW url로 들어가도록
+        for (var i = 0; i < categoryArr.length; i++) {
+          //단어 반복문
+          var device = categoryArr[i].device.toLowerCase(); //['Galaxy', 'Note', '20', 'Ultra', '5G']
 
-      dev.ctaLinkChange(category, 0);
-      dev.listItemConnect();
-      dev.changeListView();
-    },
-    //Buy Now 버튼 URL 변경
-    ctaLinkChange: function ctaLinkChange(array, index) {
-      var ctaButton = $('.ctaButton');
-      var pageURL = array[index]['CTA Landing'];
-      ctaButton.attr('href', pageURL);
-    },
-    //아이템이 클릭 되었을 때,
-    itemChoiceChange: function itemChoiceChange() {
-      $('.tab_section .item_button').on('click', function () {
-        if (!$(this).hasClass('choice')) {
-          $(this).closest('.tab_section').find('.item_button').removeClass('choice');
-          $(this).addClass('choice');
-          var itemURL = $(this).find('img').data('url');
-          $('.ctaButton').attr('href', itemURL); //구 기종 리스트 보이기
+          var wordTrueCount = 0;
 
-          dev.changeListView(); //before 가격 바꾸기
+          for (var j = 0; j < wordArr.length; j++) {
+            if (device.includes(wordArr[j])) wordTrueCount++;
+          }
 
-          dev.beforePriceChange();
+          if (wordTrueCount === wordArr.length) _newList.push(categoryArr[i]);
         }
-      });
-    },
-    //기종 리스트 접기/펼치기
-    listfoldToggle: function listfoldToggle(button) {
-      $(button).closest('.device').toggleClass('list-hidden');
-    },
-    //구 기종 리스트 보이게
-    changeListView: function changeListView() {
-      var target = $('.tab_section .item_button.choice');
-      var targetName = target.find('.item_name').text().replace('Galaxy', '').replace('5G', '').replace('  ', ' ').trim();
-      var list = _return_item_data_js__WEBPACK_IMPORTED_MODULE_1__["returnItemArray"].filter(function (item) {
-        return item.device === targetName;
-      });
-      var listWrap = $('.device .list');
-      var itemGroupHtml = '';
-      list.forEach(function (item, index) {
-        var inputCheck = index === 0 ? 'checked' : '';
-        var deviceName = item.return_phone.trim();
-        var deviceId = item.return_phone.trim().replace(/ /gi, "_");
-        var deviceRemainPrice = item.remain_price;
-        var itemHtml = '<li class="item"><div class="radio-btn">';
-        itemHtml += '<input type="radio" id="' + deviceId + '" name="change_item" ' + inputCheck + '>';
-        itemHtml += '<label for="' + deviceId + '">' + deviceName + '</label>';
-        itemHtml += '</div><p class="price">Up to <span>' + deviceRemainPrice + '</span></p></li>';
-        itemGroupHtml += itemHtml;
-      });
-      listWrap.html(itemGroupHtml);
-      dev.listItemConnect();
-      dev.listItemChoice();
-    },
-    //before 가격 보여지게
-    beforePriceChange: function beforePriceChange() {
-      var targetPrice = $('.tab_section .item_button.choice .price').text();
-      $('.before .price').text(targetPrice);
-    },
-    // 구 기종 선택시 회색박스에 연동시키기 
-    listItemConnect: function listItemConnect() {
-      var checkedLabel = $('input:radio[name="change_item"]:checked').siblings('label');
-      var itemPrice = checkedLabel.closest('.item').find('.price span').text();
-      var itemName = checkedLabel.text();
-      $('#item_name').text(itemName);
-      $('#item_price').text(itemPrice); // 구 기종 선택시 after price 바뀌게 
 
-      var originalPrice = dev.calcMoney($('.choice .price').text());
-      var discountPrice = dev.calcMoney(itemPrice);
-      var totalPrice = dev.calcUnit(originalPrice - discountPrice);
-      $('.after .price').text(totalPrice);
+        categoryArr = _newList;
+      }
+
+      var html = '';
+
+      if (categoryArr.length === 0) {
+        html = "<li>Your device is not eligible for trade-in.</li>";
+      } else {
+        categoryArr.forEach(function (item) {
+          var text = "<li><button type=\"button\">".concat(item.device, "</button></li>");
+          html += text;
+        });
+      }
+
+      $list.append(html);
     },
-    listItemChoice: function listItemChoice() {
-      //라디오박스 체크 변화될 때마다 아이템의 이름, 가격 가져와 회색박스에 연동
-      $("input[name='change_item']:radio").change(function () {
-        dev.listItemConnect();
+    inputChange: function inputChange() {
+      $('.search_item').on('focus', function (e) {
+        $(this).closest('.search_box').addClass('active');
+        dev.drawList();
+      });
+      $('.search_item').on('keyup', function (e) {
+        if (e.target.value === '') return;
+        var arr_word = String(e.target.value).toLowerCase().split(' ');
+        dev.drawList(arr_word);
       });
     },
-    //쉼표, 소숫점 없애기
-    calcMoney: function calcMoney(price) {
-      return price.replace(/[^0-9.]+/g, '');
-    },
-    //금액 소숫점 두자리 + 천단위 마다 쉼표 추가
-    calcUnit: function calcUnit(number) {
-      return Number(number).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    clearInput: function clearInput() {
+      $('.btn_clear').on('click', function (e) {
+        var el = $(e.target);
+        el.siblings('input[type="text"]').val('');
+      });
     },
     init: function init() {
-      if ($('.section__purchase').length > 0) {
-        dev.tabSectionChange();
-        dev.tabSectionView();
-        dev.changeListView();
-        dev.listItemConnect();
-        dev.listItemChoice();
-        dev.beforePriceChange();
-      }
+      dev.tabSectionChange();
+      dev.inputChange();
+      dev.clearInput();
     }
   };
-  $(function () {
+  $(document).ready(function () {
     dev.init();
+    console.log(['galaxy', 'z', 'fold2', '5g'].includes('galaxy'));
   });
-  return {
-    listfoldToggle: dev.listfoldToggle
-  };
-}(jquery__WEBPACK_IMPORTED_MODULE_2___default.a); //전역 객체로 등록
-
-
-window.TRADE = trade;
+  return {};
+}(jquery__WEBPACK_IMPORTED_MODULE_1___default.a);
 
 /***/ }),
 
-/***/ "./src/js/new_item_data.js":
-/*!*********************************!*\
-  !*** ./src/js/new_item_data.js ***!
-  \*********************************/
-/*! exports provided: itemArray */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "itemArray", function() { return itemArray; });
-var itemArray = [{
-  category: 'SMP',
-  NAME: 'Galaxy Z Fold3 (256GB)',
-  PRICE: '£1,599.00',
-  'IMAGE URL': 'https://images.samsung.com/is/image/samsung/p6pim/uk/2108/gallery/uk-galaxy-z-fold3-f926-5g-sm-f926bzkdeua-thumb-477352697?$160_160_PNG$',
-  'CTA Landing': 'https://www.samsung.com/uk/smartphones/galaxy-z-fold3-5g/buy/'
-}, {
-  category: 'SMP',
-  NAME: 'Galaxy Z Flip3 (128GB)',
-  PRICE: '£949.00',
-  'IMAGE URL': 'https://images.samsung.com/is/image/samsung/p6pim/uk/sm-f711bzebeua/gallery/uk-galaxy-z-flip3-f711-5g-397170-sm-f711bzebeua-thumb-516130930?$160_160_PNG$',
-  'CTA Landing': 'https://www.samsung.com/uk/smartphones/galaxy-z-flip3-5g/buy/'
-}, {
-  category: 'SMP',
-  NAME: 'S21 Ultra 5G (128GB)',
-  PRICE: '£1,149.00',
-  'IMAGE URL': 'https://images.samsung.com/is/image/samsung/p6pim/uk/galaxy-s21/gallery/uk-galaxy-s21-ultra-5g-g988-sm-g998bzsgeua-thumb-368888054?$160_160_PNG$',
-  'CTA Landing': 'https://www.samsung.com/uk/smartphones/galaxy-s21-5g/buy/?modelCode=SM-G998BZSDEUA'
-}, {
-  category: 'Tablet',
-  NAME: 'Galaxy Z Fold3 (256GB)',
-  PRICE: '£1,599.00',
-  'IMAGE URL': 'https://images.samsung.com/is/image/samsung/p6pim/uk/2108/gallery/uk-galaxy-z-fold3-f926-5g-sm-f926bzkdeua-thumb-477352697?$160_160_PNG$',
-  'CTA Landing': 'https://www.samsung.com/uk/smartphones/galaxy-z-fold3-5g/buy/'
-}, {
-  category: 'Tablet',
-  NAME: 'Galaxy Z Flip3 (128GB)',
-  PRICE: '£949.00',
-  'IMAGE URL': 'https://images.samsung.com/is/image/samsung/p6pim/uk/sm-f711bzebeua/gallery/uk-galaxy-z-flip3-f711-5g-397170-sm-f711bzebeua-thumb-516130930?$160_160_PNG$',
-  'CTA Landing': 'https://www.samsung.com/uk/smartphones/galaxy-z-flip3-5g/buy/'
-}, {
-  category: 'Tablet',
-  NAME: 'Galaxy Tab S7 FE (64GB, Wifi)',
-  PRICE: '£449.00',
-  'IMAGE URL': 'https://images.samsung.com/is/image/samsung/p6pim/uk/sm-t733nzsaeua/gallery/uk-galaxy-tab-s7-fe-t733-sm-t733nzsaeua-thumb-490806996?$160_160_PNG$',
-  'CTA Landing': 'https://www.samsung.com/uk/tablets/galaxy-tab-s7-fe/buy/?modelCode=SM-T733NZSAEUA'
-}, {
-  category: 'Wearables',
-  NAME: 'Watch4 Classic (42mm, BT)',
-  PRICE: '£274.00',
-  'IMAGE URL': 'https://images.samsung.com/is/image/samsung/p6pim/uk/2108/gallery/uk-galaxy-watch4-classic-400142-sm-r880nzkaeua-thumb-481824165?$160_160_PNG$',
-  'CTA Landing': 'https://www.samsung.com/uk/watches/galaxy-watch/galaxy-watch4-classic-black-bt-sm-r880nzkaeua/buy/'
-}, {
-  category: 'Wearables',
-  NAME: 'Watch4 (40mm, BT)',
-  PRICE: '£199.00',
-  'IMAGE URL': 'https://images.samsung.com/is/image/samsung/p6pim/uk/2108/gallery/uk-galaxy-watch4-400170-sm-r860nzdaeua-thumb-481838692?$160_160_PNG$',
-  'CTA Landing': 'https://www.samsung.com/uk/watches/galaxy-watch/galaxy-watch4-pink-gold-bt-sm-r860nzdaeua/buy/'
-}];
-
-
-/***/ }),
-
-/***/ "./src/js/return_item_data.js":
-/*!************************************!*\
-  !*** ./src/js/return_item_data.js ***!
-  \************************************/
-/*! exports provided: returnItemArray */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "returnItemArray", function() { return returnItemArray; });
-var returnItemArray = [{
-  site_code: 'UK',
-  device: 'S21 Ultra (128GB)',
-  RRP: '£1,149.00',
-  brand: 'Samsung',
-  return_phone: 'Galaxy S21 Ultra 5G ',
-  remain_price: '£500.00'
-}, {
-  site_code: 'UK',
-  device: 'S21 Ultra (128GB)',
-  RRP: '£1,149.00',
-  brand: 'Samsung',
-  return_phone: 'Galaxy S21 Plus 5G ',
-  remain_price: '£410.00'
-}, {
-  site_code: 'UK',
-  device: 'S21 Ultra (128GB)',
-  RRP: '£1,149.00',
-  brand: 'Samsung',
-  return_phone: 'Galaxy Z Fold2 5G ',
-  remain_price: '£410.00'
-}, {
-  site_code: 'UK',
-  device: 'S21 Ultra (128GB)',
-  RRP: '£1,149.00',
-  brand: 'Samsung',
-  return_phone: 'Galaxy Note 20 Ultra 5G ',
-  remain_price: '£410.00'
-}, {
-  site_code: 'UK',
-  device: 'S21 Ultra (128GB)',
-  RRP: '£1,149.00',
-  brand: 'Samsung',
-  return_phone: 'Galaxy S21 5G ',
-  remain_price: '£390.00'
-}, {
-  site_code: 'UK',
-  device: 'S21 Ultra (128GB)',
-  RRP: '£1,149.00',
-  brand: 'Samsung',
-  return_phone: 'Galaxy Note 20 UltraUp to ',
-  remain_price: '£380.00'
-}, {
-  site_code: 'UK',
-  device: 'S21 Ultra (128GB)',
-  RRP: '£1,149.00',
-  brand: 'Samsung',
-  return_phone: 'Galaxy S20 Ultra 5G ',
-  remain_price: '£350.00'
-}, {
-  site_code: 'UK',
-  device: 'S21 Ultra (128GB)',
-  RRP: '£1,149.00',
-  brand: 'Samsung',
-  return_phone: 'Galaxy Note 20 5G ',
-  remain_price: '£340.00'
-}, {
-  site_code: 'UK',
-  device: 'S21 Ultra (128GB)',
-  RRP: '£1,149.00',
-  brand: 'Samsung',
-  return_phone: 'Galaxy S20 Plus 5G ',
-  remain_price: '£310.00'
-}, {
-  site_code: 'UK',
-  device: 'S21 Ultra (128GB)',
-  RRP: '£1,149.00',
-  brand: 'Samsung',
-  return_phone: 'Galaxy Note 20 ',
-  remain_price: '£300.00'
-}, {
-  site_code: 'UK',
-  device: 'S21 Ultra (128GB)',
-  RRP: '£1,149.00',
-  brand: 'Samsung',
-  return_phone: 'Galaxy S20 Plus ',
-  remain_price: '£300.00'
-}, {
-  site_code: 'UK',
-  device: 'S21 Ultra (128GB)',
-  RRP: '£1,149.00',
-  brand: 'Samsung',
-  return_phone: 'Galaxy S20 Plus BTS Edition',
-  remain_price: '£290.00'
-}, {
-  site_code: 'UK',
-  device: 'S21 Ultra (128GB)',
-  RRP: '£1,149.00',
-  brand: 'Samsung',
-  return_phone: 'Galaxy S20 5G ',
-  remain_price: '£280.00'
-}, {
-  site_code: 'UK',
-  device: 'S21 Ultra (128GB)',
-  RRP: '£1,149.00',
-  brand: 'Samsung',
-  return_phone: 'Galaxy S20 ',
-  remain_price: '£270.00'
-}, {
-  site_code: 'UK',
-  device: 'S21 Ultra (128GB)',
-  RRP: '£1,149.00',
-  brand: 'Samsung',
-  return_phone: 'Galaxy Z Flip 5G ',
-  remain_price: '£260.00'
-}, {
-  site_code: 'UK',
-  device: 'S21 Ultra (128GB)',
-  RRP: '£1,149.00',
-  brand: 'Samsung',
-  return_phone: 'Galaxy Z Fold 5G ',
-  remain_price: '£260.00'
-}, {
-  site_code: 'UK',
-  device: 'S21 Ultra (128GB)',
-  RRP: '£1,149.00',
-  brand: 'Samsung',
-  return_phone: 'Galaxy Z Flip ',
-  remain_price: '£240.00'
-}, {
-  site_code: 'UK',
-  device: 'S21 Ultra (128GB)',
-  RRP: '£1,149.00',
-  brand: 'Samsung',
-  return_phone: 'Galaxy Note 10 Plus 5G ',
-  remain_price: '£240.00'
-}, {
-  site_code: 'UK',
-  device: 'S21 Ultra (128GB)',
-  RRP: '£1,149.00',
-  brand: 'A-Brand',
-  return_phone: 'iPhone XS Max',
-  remain_price: '£230.00'
-}, {
-  site_code: 'UK',
-  device: 'S21 Ultra (128GB)',
-  RRP: '£1,149.00',
-  brand: 'Samsung',
-  return_phone: 'Galaxy Note 10 Plus ',
-  remain_price: '£220.00'
-}, {
-  site_code: 'UK',
-  device: 'S21 Ultra (128GB)',
-  RRP: '£1,149.00',
-  brand: 'A-Brand',
-  return_phone: 'iPhone XS',
-  remain_price: '£220.00'
-}, {
-  site_code: 'UK',
-  device: 'S21 Ultra (128GB)',
-  RRP: '£1,149.00',
-  brand: 'Samsung',
-  return_phone: 'Galaxy Note 10 ',
-  remain_price: '£210.00'
-}, {
-  site_code: 'UK',
-  device: 'S21 Ultra (128GB)',
-  RRP: '£1,149.00',
-  brand: 'Samsung',
-  return_phone: 'Galaxy S20 5G FE ',
-  remain_price: '£210.00'
-}, {
-  site_code: 'UK',
-  device: 'S21 Ultra (128GB)',
-  RRP: '£1,149.00',
-  brand: 'Samsung',
-  return_phone: 'Galaxy S20 (Fan Edition) ',
-  remain_price: '£210.00'
-}, {
-  site_code: 'UK',
-  device: 'S21 Ultra (128GB)',
-  RRP: '£1,149.00',
-  brand: 'Huawei',
-  return_phone: 'P40 Pro+',
-  remain_price: '£210.00'
-}, {
-  site_code: 'UK',
-  device: 'Z Flip3 (128GB)',
-  RRP: '£949.00',
-  brand: 'Samsung',
-  return_phone: 'Galaxy S21 Plus 5G ',
-  remain_price: '£460.00'
-}, {
-  site_code: 'UK',
-  device: 'Z Flip3 (128GB)',
-  RRP: '£949.00',
-  brand: 'Samsung',
-  return_phone: 'Galaxy Z Fold2 5G ',
-  remain_price: '£460.00'
-}, {
-  site_code: 'UK',
-  device: 'Z Flip3 (128GB)',
-  RRP: '£949.00',
-  brand: 'Samsung',
-  return_phone: 'Galaxy Note 20 Ultra 5G ',
-  remain_price: '£460.00'
-}, {
-  site_code: 'UK',
-  device: 'Z Flip3 (128GB)',
-  RRP: '£949.00',
-  brand: 'Samsung',
-  return_phone: 'Galaxy S21 5G ',
-  remain_price: '£440.00'
-}, {
-  site_code: 'UK',
-  device: 'Z Flip3 (128GB)',
-  RRP: '£949.00',
-  brand: 'Samsung',
-  return_phone: 'Galaxy Note 20 Ultra ',
-  remain_price: '£430.00'
-}, {
-  site_code: 'UK',
-  device: 'Z Flip3 (128GB)',
-  RRP: '£949.00',
-  brand: 'Samsung',
-  return_phone: 'Galaxy S20 Ultra 5G ',
-  remain_price: '£400.00'
-}, {
-  site_code: 'UK',
-  device: 'Z Flip3 (128GB)',
-  RRP: '£949.00',
-  brand: 'Samsung',
-  return_phone: 'Galaxy Note 20 5G ',
-  remain_price: '£390.00'
-}, {
-  site_code: 'UK',
-  device: 'Z Flip3 (128GB)',
-  RRP: '£949.00',
-  brand: 'Samsung',
-  return_phone: 'Galaxy S20 Plus 5G ',
-  remain_price: '£360.00'
-}, {
-  site_code: 'UK',
-  device: 'Z Flip3 (128GB)',
-  RRP: '£949.00',
-  brand: 'Samsung',
-  return_phone: 'Galaxy Note 20 ',
-  remain_price: '£350.00'
-}, {
-  site_code: 'UK',
-  device: 'Z Flip3 (128GB)',
-  RRP: '£949.00',
-  brand: 'Samsung',
-  return_phone: 'Galaxy S20 Plus ',
-  remain_price: '£350.00'
-}, {
-  site_code: 'UK',
-  device: 'Z Flip3 (128GB)',
-  RRP: '£949.00',
-  brand: 'Samsung',
-  return_phone: 'Galaxy S20 Plus BTS Edition',
-  remain_price: '£340.00'
-}, {
-  site_code: 'UK',
-  device: 'Z Flip3 (128GB)',
-  RRP: '£949.00',
-  brand: 'Samsung',
-  return_phone: 'Galaxy S20 5G ',
-  remain_price: '£330.00'
-}, {
-  site_code: 'UK',
-  device: 'Z Flip3 (128GB)',
-  RRP: '£949.00',
-  brand: 'Samsung',
-  return_phone: 'Galaxy S20 ',
-  remain_price: '£320.00'
-}, {
-  site_code: 'UK',
-  device: 'Z Flip3 (128GB)',
-  RRP: '£949.00',
-  brand: 'Samsung',
-  return_phone: 'Galaxy Z Flip 5G ',
-  remain_price: '£310.00'
-}, {
-  site_code: 'UK',
-  device: 'Z Flip3 (128GB)',
-  RRP: '£949.00',
-  brand: 'Samsung',
-  return_phone: 'Galaxy Z Fold 5G ',
-  remain_price: '£310.00'
-}, {
-  site_code: 'UK',
-  device: 'Z Flip3 (128GB)',
-  RRP: '£949.00',
-  brand: 'Samsung',
-  return_phone: 'Galaxy Z Flip ',
-  remain_price: '£290.00'
-}, {
-  site_code: 'UK',
-  device: 'Z Flip3 (128GB)',
-  RRP: '£949.00',
-  brand: 'Samsung',
-  return_phone: 'Galaxy Note 10 Plus 5G ',
-  remain_price: '£290.00'
-}, {
-  site_code: 'UK',
-  device: 'Z Flip3 (128GB)',
-  RRP: '£949.00',
-  brand: 'A-Brand',
-  return_phone: 'iPhone XS Max',
-  remain_price: '£280.00'
-}, {
-  site_code: 'UK',
-  device: 'Z Flip3 (128GB)',
-  RRP: '£949.00',
-  brand: 'Samsung',
-  return_phone: 'Galaxy Note 10 Plus ',
-  remain_price: '£270.00'
-}, {
-  site_code: 'UK',
-  device: 'Z Flip3 (128GB)',
-  RRP: '£949.00',
-  brand: 'A-Brand',
-  return_phone: 'iPhone XS',
-  remain_price: '£270.00'
-}, {
-  site_code: 'UK',
-  device: 'Z Flip3 (128GB)',
-  RRP: '£949.00',
-  brand: 'Samsung',
-  return_phone: 'Galaxy Note 10 ',
-  remain_price: '£260.00'
-}, {
-  site_code: 'UK',
-  device: 'Z Flip3 (128GB)',
-  RRP: '£949.00',
-  brand: 'Samsung',
-  return_phone: 'Galaxy S20 5G FE ',
-  remain_price: '£260.00'
-}, {
-  site_code: 'UK',
-  device: 'Z Flip3 (128GB)',
-  RRP: '£949.00',
-  brand: 'Samsung',
-  return_phone: 'Galaxy S20 (Fan Edition) ',
-  remain_price: '£260.00'
-}, {
-  site_code: 'UK',
-  device: 'Z Flip3 (128GB)',
-  RRP: '£949.00',
-  brand: 'Huawei',
-  return_phone: 'P40 Pro+',
-  remain_price: '£260.00'
-}, {
-  site_code: 'UK',
-  device: 'Z Flip3 (128GB)',
-  RRP: '£949.00',
-  brand: 'Samsung',
-  return_phone: 'Galaxy S10 Plus ',
-  remain_price: '£240.00'
-}, {
-  site_code: 'UK',
-  device: 'Z Flip3 (128GB)',
-  RRP: '£949.00',
-  brand: 'A-Brand',
-  return_phone: 'iPhone XR',
-  remain_price: '£240.00'
-}, {
-  site_code: 'UK',
-  device: 'Z Flip3 (128GB)',
-  RRP: '£949.00',
-  brand: 'Samsung',
-  return_phone: 'Galaxy S10 5G ',
-  remain_price: '£230.00'
-}, {
-  site_code: 'UK',
-  device: 'Z Flip3 (128GB)',
-  RRP: '£949.00',
-  brand: 'Samsung',
-  return_phone: 'Galaxy S10 ',
-  remain_price: '£230.00'
-}, {
-  site_code: 'UK',
-  device: 'Z Flip3 (128GB)',
-  RRP: '£949.00',
-  brand: 'A-Brand',
-  return_phone: 'iPhone X',
-  remain_price: '£230.00'
-}, {
-  site_code: 'UK',
-  device: 'Z Flip3 (128GB)',
-  RRP: '£949.00',
-  brand: 'Huawei',
-  return_phone: 'P40 Pro',
-  remain_price: '£230.00'
-}, {
-  site_code: 'UK',
-  device: 'Z Flip3 (128GB)',
-  RRP: '£949.00',
-  brand: 'Samsung',
-  return_phone: 'Galaxy Note 10 Lite ',
-  remain_price: '£220.00'
-}, {
-  site_code: 'UK',
-  device: 'Z Flip3 (128GB)',
-  RRP: '£949.00',
-  brand: 'Samsung',
-  return_phone: 'Galaxy S10 Lite ',
-  remain_price: '£210.00'
-}, {
-  site_code: 'UK',
-  device: 'Z Flip3 (128GB)',
-  RRP: '£949.00',
-  brand: 'A-Brand',
-  return_phone: 'iPhone SE 2020',
-  remain_price: '£210.00'
-}, {
-  site_code: 'UK',
-  device: 'Z Flip3 (128GB)',
-  RRP: '£949.00',
-  brand: 'A-Brand',
-  return_phone: 'iPhone 8 Plus',
-  remain_price: '£200.00'
-}, {
-  site_code: 'UK',
-  device: 'Z Flip3 (128GB)',
-  RRP: '£949.00',
-  brand: 'Google',
-  return_phone: 'Pixel 5',
-  remain_price: '£200.00'
-}, {
-  site_code: 'UK',
-  device: 'Z Flip3 (128GB)',
-  RRP: '£949.00',
-  brand: 'Huawei',
-  return_phone: 'P30 Pro',
-  remain_price: '£200.00'
-}, {
-  site_code: 'UK',
-  device: 'Z Fold3 (256GB)',
-  RRP: '£1,599.00',
-  brand: 'Samsung',
-  return_phone: 'Galaxy S21 Ultra 5G ',
-  remain_price: '£500.00'
-}, {
-  site_code: 'UK',
-  device: 'Z Fold3 (256GB)',
-  RRP: '£1,599.00',
-  brand: 'Samsung',
-  return_phone: 'Galaxy S21 Plus 5G ',
-  remain_price: '£410.00'
-}, {
-  site_code: 'UK',
-  device: 'Z Fold3 (256GB)',
-  RRP: '£1,599.00',
-  brand: 'Samsung',
-  return_phone: 'Galaxy Z Fold2 5G ',
-  remain_price: '£410.00'
-}, {
-  site_code: 'UK',
-  device: 'Z Fold3 (256GB)',
-  RRP: '£1,599.00',
-  brand: 'Samsung',
-  return_phone: 'Galaxy Note 20 Ultra 5G ',
-  remain_price: '£410.00'
-}, {
-  site_code: 'UK',
-  device: 'Z Fold3 (256GB)',
-  RRP: '£1,599.00',
-  brand: 'Samsung',
-  return_phone: 'Galaxy S21 5G ',
-  remain_price: '£390.00'
-}, {
-  site_code: 'UK',
-  device: 'Z Fold3 (256GB)',
-  RRP: '£1,599.00',
-  brand: 'Samsung',
-  return_phone: 'Galaxy Note 20 Ultra',
-  remain_price: '£380.00'
-}, {
-  site_code: 'UK',
-  device: 'Z Fold3 (256GB)',
-  RRP: '£1,599.00',
-  brand: 'Samsung',
-  return_phone: 'Galaxy S20 Ultra 5G ',
-  remain_price: '£350.00'
-}, {
-  site_code: 'UK',
-  device: 'Z Fold3 (256GB)',
-  RRP: '£1,599.00',
-  brand: 'Samsung',
-  return_phone: 'Galaxy Note 20 5G ',
-  remain_price: '£340.00'
-}, {
-  site_code: 'UK',
-  device: 'Z Fold3 (256GB)',
-  RRP: '£1,599.00',
-  brand: 'Samsung',
-  return_phone: 'Galaxy S20 Plus 5G ',
-  remain_price: '£310.00'
-}, {
-  site_code: 'UK',
-  device: 'Z Fold3 (256GB)',
-  RRP: '£1,599.00',
-  brand: 'Samsung',
-  return_phone: 'Galaxy Note 20 ',
-  remain_price: '£300.00'
-}, {
-  site_code: 'UK',
-  device: 'Z Fold3 (256GB)',
-  RRP: '£1,599.00',
-  brand: 'Samsung',
-  return_phone: 'Galaxy S20 Plus ',
-  remain_price: '£300.00'
-}, {
-  site_code: 'UK',
-  device: 'Z Fold3 (256GB)',
-  RRP: '£1,599.00',
-  brand: 'Samsung',
-  return_phone: 'Galaxy S20 Plus BTS Edition',
-  remain_price: '£290.00'
-}, {
-  site_code: 'UK',
-  device: 'Z Fold3 (256GB)',
-  RRP: '£1,599.00',
-  brand: 'Samsung',
-  return_phone: 'Galaxy S20 5G ',
-  remain_price: '£280.00'
-}, {
-  site_code: 'UK',
-  device: 'Z Fold3 (256GB)',
-  RRP: '£1,599.00',
-  brand: 'Samsung',
-  return_phone: 'Galaxy S20 ',
-  remain_price: '£270.00'
-}, {
-  site_code: 'UK',
-  device: 'Z Fold3 (256GB)',
-  RRP: '£1,599.00',
-  brand: 'Samsung',
-  return_phone: 'Galaxy Z Flip 5G ',
-  remain_price: '£260.00'
-}, {
-  site_code: 'UK',
-  device: 'Z Fold3 (256GB)',
-  RRP: '£1,599.00',
-  brand: 'Samsung',
-  return_phone: 'Galaxy Z Fold 5G ',
-  remain_price: '£260.00'
-}, {
-  site_code: 'UK',
-  device: 'Z Fold3 (256GB)',
-  RRP: '£1,599.00',
-  brand: 'Samsung',
-  return_phone: 'Galaxy Z Flip ',
-  remain_price: '£240.00'
-}, {
-  site_code: 'UK',
-  device: 'Z Fold3 (256GB)',
-  RRP: '£1,599.00',
-  brand: 'Samsung',
-  return_phone: 'Galaxy Note 10 Plus 5G ',
-  remain_price: '£240.00'
-}, {
-  site_code: 'UK',
-  device: 'Z Fold3 (256GB)',
-  RRP: '£1,599.00',
-  brand: 'A-Brand',
-  return_phone: 'iPhone XS Max',
-  remain_price: '£230.00'
-}, {
-  site_code: 'UK',
-  device: 'Z Fold3 (256GB)',
-  RRP: '£1,599.00',
-  brand: 'Samsung',
-  return_phone: 'Galaxy Note 10 Plus ',
-  remain_price: '£220.00'
-}, {
-  site_code: 'UK',
-  device: 'Z Fold3 (256GB)',
-  RRP: '£1,599.00',
-  brand: 'A-Brand',
-  return_phone: 'iPhone XS',
-  remain_price: '£220.00'
-}, {
-  site_code: 'UK',
-  device: 'Z Fold3 (256GB)',
-  RRP: '£1,599.00',
-  brand: 'Samsung',
-  return_phone: 'Galaxy Note 10 ',
-  remain_price: '£210.00'
-}, {
-  site_code: 'UK',
-  device: 'Z Fold3 (256GB)',
-  RRP: '£1,599.00',
-  brand: 'Samsung',
-  return_phone: 'Galaxy S20 5G FE ',
-  remain_price: '£210.00'
-}, {
-  site_code: 'UK',
-  device: 'Z Fold3 (256GB)',
-  RRP: '£1,599.00',
-  brand: 'Samsung',
-  return_phone: 'Galaxy S20 (Fan Edition) ',
-  remain_price: '£210.00'
-}, {
-  site_code: 'UK',
-  device: 'Z Fold3 (256GB)',
-  RRP: '£1,599.00',
-  brand: 'Huawei',
-  return_phone: 'P40 Pro+',
-  remain_price: '£210.00'
-}, {
-  site_code: 'UK',
-  device: 'Z Fold3 (256GB)',
-  RRP: '£1,599.00',
-  brand: 'Samsung',
-  return_phone: 'Galaxy Tab S6 WiFi ',
-  remain_price: '£185.00'
-}, {
-  site_code: 'UK',
-  device: 'Z Fold3 (256GB)',
-  RRP: '£1,599.00',
-  brand: 'Samsung',
-  return_phone: 'Galaxy Tab S6 LTE ',
-  remain_price: '£175.00'
-}, {
-  site_code: 'UK',
-  device: 'Z Fold3 (256GB)',
-  RRP: '£1,599.00',
-  brand: 'A-Brand',
-  return_phone: 'iPad Pro 5 (2021) WiFi 12.9',
-  remain_price: '£275.00'
-}, {
-  site_code: 'UK',
-  device: 'Z Fold3 (256GB)',
-  RRP: '£1,599.00',
-  brand: 'A-Brand',
-  return_phone: 'iPad Pro 4 12.9 WiFi 4G (2020)',
-  remain_price: '£275.00'
-}, {
-  site_code: 'UK',
-  device: 'Z Fold3 (256GB)',
-  RRP: '£1,599.00',
-  brand: 'A-Brand',
-  return_phone: 'iPad Pro 5 (2021) WiFi 4G 12.9',
-  remain_price: '£275.00'
-}, {
-  site_code: 'UK',
-  device: 'Z Fold3 (256GB)',
-  RRP: '£1,599.00',
-  brand: 'A-Brand',
-  return_phone: 'iPad Pro 4 12.9 WiFi (2020)',
-  remain_price: '£275.00'
-}, {
-  site_code: 'UK',
-  device: 'Z Fold3 (256GB)',
-  RRP: '£1,599.00',
-  brand: 'A-Brand',
-  return_phone: 'iPad Pro 3 (2021) WiFi 4G 11.0',
-  remain_price: '£250.00'
-}, {
-  site_code: 'UK',
-  device: 'Z Fold3 (256GB)',
-  RRP: '£1,599.00',
-  brand: 'A-Brand',
-  return_phone: 'iPad Pro 3 (2018) WiFi 4G 12.9',
-  remain_price: '£250.00'
-}, {
-  site_code: 'UK',
-  device: 'Z Fold3 (256GB)',
-  RRP: '£1,599.00',
-  brand: 'A-Brand',
-  return_phone: 'iPad Pro 3 (2018) WiFi 12.9',
-  remain_price: '£240.00'
-}, {
-  site_code: 'UK',
-  device: 'Z Fold3 (256GB)',
-  RRP: '£1,599.00',
-  brand: 'A-Brand',
-  return_phone: 'iPad Pro 3 (2021) WiFi 11.0',
-  remain_price: '£240.00'
-}, {
-  site_code: 'UK',
-  device: 'Z Fold3 (256GB)',
-  RRP: '£1,599.00',
-  brand: 'A-Brand',
-  return_phone: 'iPad Pro 2 (2017) WiFi 4G 12.9',
-  remain_price: '£200.00'
-}, {
-  site_code: 'UK',
-  device: 'Z Fold3 (256GB)',
-  RRP: '£1,599.00',
-  brand: 'A-Brand',
-  return_phone: 'iPad Pro 2 (2017) WiFi 12.9',
-  remain_price: '£190.00'
-}, {
-  site_code: 'UK',
-  device: 'Z Fold3 (256GB)',
-  RRP: '£1,599.00',
-  brand: 'A-Brand',
-  return_phone: 'iPad Pro (2018) WiFi 11.0',
-  remain_price: '£180.00'
-}, {
-  site_code: 'UK',
-  device: 'Z Fold3 (256GB)',
-  RRP: '£1,599.00',
-  brand: 'A-Brand',
-  return_phone: 'iPad Pro (2018) WiFi 4G 11.0',
-  remain_price: '£180.00'
-}, {
-  site_code: 'UK',
-  device: 'Z Fold3 (256GB)',
-  RRP: '£1,599.00',
-  brand: 'A-Brand',
-  return_phone: 'iPad Air 4 (2020) WiFi 4G',
-  remain_price: '£160.00'
-}, {
-  site_code: 'UK',
-  device: 'Z Fold3 (256GB)',
-  RRP: '£1,599.00',
-  brand: 'A-Brand',
-  return_phone: 'iPad Air 4 (2020) WiFi',
-  remain_price: '£150.00'
-}, {
-  site_code: 'UK',
-  device: 'Z Flip3 (128GB)',
-  RRP: '£949.00',
-  brand: 'Samsung',
-  return_phone: 'Galaxy Tab S6 WiFi ',
-  remain_price: '£185.00'
-}, {
-  site_code: 'UK',
-  device: 'Z Flip3 (128GB)',
-  RRP: '£949.00',
-  brand: 'Samsung',
-  return_phone: 'Galaxy Tab S6 LTE ',
-  remain_price: '£175.00'
-}, {
-  site_code: 'UK',
-  device: 'Z Flip3 (128GB)',
-  RRP: '£949.00',
-  brand: 'A-Brand',
-  return_phone: 'iPad Pro 5 (2021) WiFi 12.9',
-  remain_price: '£275.00'
-}, {
-  site_code: 'UK',
-  device: 'Z Flip3 (128GB)',
-  RRP: '£949.00',
-  brand: 'A-Brand',
-  return_phone: 'iPad Pro 4 12.9 WiFi 4G (2020)',
-  remain_price: '£275.00'
-}, {
-  site_code: 'UK',
-  device: 'Z Flip3 (128GB)',
-  RRP: '£949.00',
-  brand: 'A-Brand',
-  return_phone: 'iPad Pro 5 (2021) WiFi 4G 12.9',
-  remain_price: '£275.00'
-}, {
-  site_code: 'UK',
-  device: 'Z Flip3 (128GB)',
-  RRP: '£949.00',
-  brand: 'A-Brand',
-  return_phone: 'iPad Pro 4 12.9 WiFi (2020)',
-  remain_price: '£275.00'
-}, {
-  site_code: 'UK',
-  device: 'Z Flip3 (128GB)',
-  RRP: '£949.00',
-  brand: 'A-Brand',
-  return_phone: 'iPad Pro 3 (2021) WiFi 4G 11.0',
-  remain_price: '£250.00'
-}, {
-  site_code: 'UK',
-  device: 'Z Flip3 (128GB)',
-  RRP: '£949.00',
-  brand: 'A-Brand',
-  return_phone: 'iPad Pro 3 (2018) WiFi 4G 12.9',
-  remain_price: '£250.00'
-}, {
-  site_code: 'UK',
-  device: 'Z Flip3 (128GB)',
-  RRP: '£949.00',
-  brand: 'A-Brand',
-  return_phone: 'iPad Pro 3 (2018) WiFi 12.9',
-  remain_price: '£240.00'
-}, {
-  site_code: 'UK',
-  device: 'Z Flip3 (128GB)',
-  RRP: '£949.00',
-  brand: 'A-Brand',
-  return_phone: 'iPad Pro 3 (2021) WiFi 11.0',
-  remain_price: '£240.00'
-}, {
-  site_code: 'UK',
-  device: 'Z Flip3 (128GB)',
-  RRP: '£949.00',
-  brand: 'A-Brand',
-  return_phone: 'iPad Pro 2 (2017) WiFi 4G 12.9',
-  remain_price: '£200.00'
-}, {
-  site_code: 'UK',
-  device: 'Z Flip3 (128GB)',
-  RRP: '£949.00',
-  brand: 'A-Brand',
-  return_phone: 'iPad Pro 2 (2017) WiFi 12.9',
-  remain_price: '£190.00'
-}, {
-  site_code: 'UK',
-  device: 'Z Flip3 (128GB)',
-  RRP: '£949.00',
-  brand: 'A-Brand',
-  return_phone: 'iPad Pro (2018) WiFi 11.0',
-  remain_price: '£180.00'
-}, {
-  site_code: 'UK',
-  device: 'Z Flip3 (128GB)',
-  RRP: '£949.00',
-  brand: 'A-Brand',
-  return_phone: 'iPad Pro (2018) WiFi 4G 11.0',
-  remain_price: '£180.00'
-}, {
-  site_code: 'UK',
-  device: 'Z Flip3 (128GB)',
-  RRP: '£949.00',
-  brand: 'A-Brand',
-  return_phone: 'iPad Air 4 (2020) WiFi 4G',
-  remain_price: '£160.00'
-}, {
-  site_code: 'UK',
-  device: 'Z Flip3 (128GB)',
-  RRP: '£949.00',
-  brand: 'A-Brand',
-  return_phone: 'iPad Air 4 (2020) WiFi',
-  remain_price: '£150.00'
-}, {
-  site_code: 'UK',
-  device: 'Tab S7 FE (64GB, Wifi)',
-  RRP: '£519.00',
-  brand: 'Samsung',
-  return_phone: 'Galaxy Tab S6 WiFi ',
-  remain_price: '£185.00'
-}, {
-  site_code: 'UK',
-  device: 'Tab S7 FE (64GB, Wifi)',
-  RRP: '£519.00',
-  brand: 'Samsung',
-  return_phone: 'Galaxy Tab S6 LTE ',
-  remain_price: '£175.00'
-}, {
-  site_code: 'UK',
-  device: 'Tab S7 FE (64GB, Wifi)',
-  RRP: '£519.00',
-  brand: 'A-Brand',
-  return_phone: 'iPad Pro 3 (2021) WiFi 4G 11.0',
-  remain_price: '£250.00'
-}, {
-  site_code: 'UK',
-  device: 'Tab S7 FE (64GB, Wifi)',
-  RRP: '£519.00',
-  brand: 'A-Brand',
-  return_phone: 'iPad Pro 3 (2018) WiFi 4G 12.9',
-  remain_price: '£250.00'
-}, {
-  site_code: 'UK',
-  device: 'Tab S7 FE (64GB, Wifi)',
-  RRP: '£519.00',
-  brand: 'A-Brand',
-  return_phone: 'iPad Pro 3 (2018) WiFi 12.9',
-  remain_price: '£240.00'
-}, {
-  site_code: 'UK',
-  device: 'Tab S7 FE (64GB, Wifi)',
-  RRP: '£519.00',
-  brand: 'A-Brand',
-  return_phone: 'iPad Pro 3 (2021) WiFi 11.0',
-  remain_price: '£240.00'
-}, {
-  site_code: 'UK',
-  device: 'Tab S7 FE (64GB, Wifi)',
-  RRP: '£519.00',
-  brand: 'A-Brand',
-  return_phone: 'iPad Pro 2 (2017) WiFi 4G 12.9',
-  remain_price: '£200.00'
-}, {
-  site_code: 'UK',
-  device: 'Tab S7 FE (64GB, Wifi)',
-  RRP: '£519.00',
-  brand: 'A-Brand',
-  return_phone: 'iPad Pro 2 (2017) WiFi 12.9',
-  remain_price: '£190.00'
-}, {
-  site_code: 'UK',
-  device: 'Tab S7 FE (64GB, Wifi)',
-  RRP: '£519.00',
-  brand: 'A-Brand',
-  return_phone: 'iPad Pro (2018) WiFi 11.0',
-  remain_price: '£180.00'
-}, {
-  site_code: 'UK',
-  device: 'Tab S7 FE (64GB, Wifi)',
-  RRP: '£519.00',
-  brand: 'A-Brand',
-  return_phone: 'iPad Pro (2018) WiFi 4G 11.0',
-  remain_price: '£180.00'
-}, {
-  site_code: 'UK',
-  device: 'Tab S7 FE (64GB, Wifi)',
-  RRP: '£519.00',
-  brand: 'A-Brand',
-  return_phone: 'iPad Air 4 (2020) WiFi 4G',
-  remain_price: '£160.00'
-}, {
-  site_code: 'UK',
-  device: 'Tab S7 FE (64GB, Wifi)',
-  RRP: '£519.00',
-  brand: 'A-Brand',
-  return_phone: 'iPad Air 4 (2020) WiFi',
-  remain_price: '£150.00'
-}, {
-  site_code: 'UK',
-  device: 'Watch4 (40mm, BT)',
-  RRP: '£249.00',
-  brand: 'Samsung',
-  return_phone: 'Galaxy Watch 3 45mm 4G  0GB',
-  remain_price: '£80.00'
-}, {
-  site_code: 'UK',
-  device: 'Watch4 (40mm, BT)',
-  RRP: '£249.00',
-  brand: 'Samsung',
-  return_phone: 'Galaxy Watch 3 45mm  0GB',
-  remain_price: '£80.00'
-}, {
-  site_code: 'UK',
-  device: 'Watch4 (40mm, BT)',
-  RRP: '£249.00',
-  brand: 'Samsung',
-  return_phone: 'Galaxy Watch 3 41mm  0GB',
-  remain_price: '£70.00'
-}, {
-  site_code: 'UK',
-  device: 'Watch4 (40mm, BT)',
-  RRP: '£249.00',
-  brand: 'Samsung',
-  return_phone: 'Galaxy Watch 3 41mm 4G  0GB',
-  remain_price: '£70.00'
-}, {
-  site_code: 'UK',
-  device: 'Watch4 (40mm, BT)',
-  RRP: '£249.00',
-  brand: 'Samsung',
-  return_phone: 'Galaxy Watch Active 2 44mm  4GB',
-  remain_price: '£60.00'
-}, {
-  site_code: 'UK',
-  device: 'Watch4 (40mm, BT)',
-  RRP: '£249.00',
-  brand: 'Samsung',
-  return_phone: 'Galaxy Watch Active 2 44mm Cellular  4GB',
-  remain_price: '£60.00'
-}, {
-  site_code: 'UK',
-  device: 'Watch4 (40mm, BT)',
-  RRP: '£249.00',
-  brand: 'Samsung',
-  return_phone: 'Galaxy Watch Active 2 40mm Cellular  4GB',
-  remain_price: '£50.00'
-}, {
-  site_code: 'UK',
-  device: 'Watch4 (40mm, BT)',
-  RRP: '£249.00',
-  brand: 'Samsung',
-  return_phone: 'Galaxy Watch Active 2 40mm  4GB',
-  remain_price: '£50.00'
-}, {
-  site_code: 'UK',
-  device: 'Watch4 (40mm, BT)',
-  RRP: '£249.00',
-  brand: 'A-Brand',
-  return_phone: 'Watch Series 6 40mm LTE  32GB',
-  remain_price: '£140.00'
-}, {
-  site_code: 'UK',
-  device: 'Watch4 (40mm, BT)',
-  RRP: '£249.00',
-  brand: 'A-Brand',
-  return_phone: 'Watch Series 6 40mm GPS  32GB',
-  remain_price: '£140.00'
-}, {
-  site_code: 'UK',
-  device: 'Watch4 (40mm, BT)',
-  RRP: '£249.00',
-  brand: 'A-Brand',
-  return_phone: 'Watch Series 5 44mm LTE  32GB',
-  remain_price: '£130.00'
-}, {
-  site_code: 'UK',
-  device: 'Watch4 (40mm, BT)',
-  RRP: '£249.00',
-  brand: 'A-Brand',
-  return_phone: 'Watch Series 5 44mm GPS  32GB',
-  remain_price: '£130.00'
-}, {
-  site_code: 'UK',
-  device: 'Watch4 (40mm, BT)',
-  RRP: '£249.00',
-  brand: 'A-Brand',
-  return_phone: 'Watch Series 5 40mm GPS  32GB',
-  remain_price: '£120.00'
-}, {
-  site_code: 'UK',
-  device: 'Watch4 (40mm, BT)',
-  RRP: '£249.00',
-  brand: 'A-Brand',
-  return_phone: 'Watch Series 5 40mm LTE  32GB',
-  remain_price: '£120.00'
-}, {
-  site_code: 'UK',
-  device: 'Watch4 (40mm, BT)',
-  RRP: '£249.00',
-  brand: 'A-Brand',
-  return_phone: 'Watch Series 4 44mm GPS 0GB',
-  remain_price: '£70.00'
-}, {
-  site_code: 'UK',
-  device: 'Watch4 (40mm, BT)',
-  RRP: '£249.00',
-  brand: 'A-Brand',
-  return_phone: 'Watch Series 4 40mm GPS 0GB',
-  remain_price: '£70.00'
-}, {
-  site_code: 'UK',
-  device: 'Watch4 (40mm, BT)',
-  RRP: '£249.00',
-  brand: 'A-Brand',
-  return_phone: 'Watch Series 4 40mm Cell 0GB',
-  remain_price: '£70.00'
-}, {
-  site_code: 'UK',
-  device: 'Watch4 (40mm, BT)',
-  RRP: '£249.00',
-  brand: 'A-Brand',
-  return_phone: 'Watch Series 4 44mm Cell 0GB',
-  remain_price: '£70.00'
-}, {
-  site_code: 'UK',
-  device: 'Watch4 (40mm, BT)',
-  RRP: '£249.00',
-  brand: 'Garmin',
-  return_phone: 'Quatix5 0GB',
-  remain_price: '£60.00'
-}, {
-  site_code: 'UK',
-  device: 'Watch4 (40mm, BT)',
-  RRP: '£249.00',
-  brand: 'Garmin',
-  return_phone: 'Forerunner 935 0GB',
-  remain_price: '£50.00'
-}, {
-  site_code: 'UK',
-  device: 'Watch4 (40mm, BT)',
-  RRP: '£249.00',
-  brand: 'oppo',
-  return_phone: 'OPPO Watch Wifi 41mm  8GB',
-  remain_price: '£50.00'
-}, {
-  site_code: 'UK',
-  device: 'Watch4 Classic (42mm, BT)',
-  RRP: '£349.00',
-  brand: 'Samsung',
-  return_phone: 'Galaxy Watch 3 45mm 4G - R845F - 0GB',
-  remain_price: '£80'
-}, {
-  site_code: 'UK',
-  device: 'Watch4 Classic (42mm, BT)',
-  RRP: '£349.00',
-  brand: 'Samsung',
-  return_phone: 'Galaxy Watch 3 45mm - R840N - 0GB',
-  remain_price: '£80'
-}, {
-  site_code: 'UK',
-  device: 'Watch4 Classic (42mm, BT)',
-  RRP: '£349.00',
-  brand: 'Samsung',
-  return_phone: 'Galaxy Watch 3 41mm - R850N - 0GB',
-  remain_price: '£70'
-}, {
-  site_code: 'UK',
-  device: 'Watch4 Classic (42mm, BT)',
-  RRP: '£349.00',
-  brand: 'Samsung',
-  return_phone: 'Galaxy Watch 3 41mm 4G - R855F - 0GB',
-  remain_price: '£70'
-}, {
-  site_code: 'UK',
-  device: 'Watch4 Classic (42mm, BT)',
-  RRP: '£349.00',
-  brand: 'Samsung',
-  return_phone: 'Galaxy Watch Active 2 44mm - SM-R820 - 4GB',
-  remain_price: '£60'
-}, {
-  site_code: 'UK',
-  device: 'Watch4 Classic (42mm, BT)',
-  RRP: '£349.00',
-  brand: 'Samsung',
-  return_phone: 'Galaxy Watch Active 2 44mm Cellular - SM-R825 - 4GB',
-  remain_price: '£60'
-}, {
-  site_code: 'UK',
-  device: 'Watch4 Classic (42mm, BT)',
-  RRP: '£349.00',
-  brand: 'Samsung',
-  return_phone: 'Galaxy Watch Active 2 40mm Cellular - SM-R835 - 4GB',
-  remain_price: '£50'
-}, {
-  site_code: 'UK',
-  device: 'Watch4 Classic (42mm, BT)',
-  RRP: '£349.00',
-  brand: 'Samsung',
-  return_phone: 'Galaxy Watch Active 2 40mm - SM-R830 - 4GB',
-  remain_price: '£50'
-}, {
-  site_code: 'UK',
-  device: 'Watch4 Classic (42mm, BT)',
-  RRP: '£349.00',
-  brand: 'A-Brand',
-  return_phone: 'Watch Series 6 44mm GPS 32GB',
-  remain_price: '£150.00'
-}, {
-  site_code: 'UK',
-  device: 'Watch4 Classic (42mm, BT)',
-  RRP: '£349.00',
-  brand: 'A-Brand',
-  return_phone: 'Watch Series 6 44mm LTE 32GB',
-  remain_price: '£150.00'
-}, {
-  site_code: 'UK',
-  device: 'Watch4 Classic (42mm, BT)',
-  RRP: '£349.00',
-  brand: 'A-Brand',
-  return_phone: 'Watch Series 6 40mm LTE 32GB',
-  remain_price: '£140.00'
-}, {
-  site_code: 'UK',
-  device: 'Watch4 Classic (42mm, BT)',
-  RRP: '£349.00',
-  brand: 'A-Brand',
-  return_phone: 'Watch Series 6 40mm GPS 32GB',
-  remain_price: '£140.00'
-}, {
-  site_code: 'UK',
-  device: 'Watch4 Classic (42mm, BT)',
-  RRP: '£349.00',
-  brand: 'A-Brand',
-  return_phone: 'Watch Series 5 44mm LTE 32GB',
-  remain_price: '£130.00'
-}, {
-  site_code: 'UK',
-  device: 'Watch4 Classic (42mm, BT)',
-  RRP: '£349.00',
-  brand: 'A-Brand',
-  return_phone: 'Watch Series 5 44mm GPS 32GB',
-  remain_price: '£130.00'
-}, {
-  site_code: 'UK',
-  device: 'Watch4 Classic (42mm, BT)',
-  RRP: '£349.00',
-  brand: 'A-Brand',
-  return_phone: 'Watch Series 5 40mm GPS 32GB',
-  remain_price: '£120.00'
-}, {
-  site_code: 'UK',
-  device: 'Watch4 Classic (42mm, BT)',
-  RRP: '£349.00',
-  brand: 'A-Brand',
-  return_phone: 'Watch Series 5 40mm LTE 32GB',
-  remain_price: '£120.00'
-}, {
-  site_code: 'UK',
-  device: 'Watch4 Classic (42mm, BT)',
-  RRP: '£349.00',
-  brand: 'A-Brand',
-  return_phone: 'Watch Series 4 44mm GPS 0GB',
-  remain_price: '£70.00'
-}, {
-  site_code: 'UK',
-  device: 'Watch4 Classic (42mm, BT)',
-  RRP: '£349.00',
-  brand: 'A-Brand',
-  return_phone: 'Watch Series 4 40mm GPS 0GB',
-  remain_price: '£70.00'
-}, {
-  site_code: 'UK',
-  device: 'Watch4 Classic (42mm, BT)',
-  RRP: '£349.00',
-  brand: 'A-Brand',
-  return_phone: 'Watch Series 4 40mm Cell 0GB',
-  remain_price: '£70.00'
-}, {
-  site_code: 'UK',
-  device: 'Watch4 Classic (42mm, BT)',
-  RRP: '£349.00',
-  brand: 'A-Brand',
-  return_phone: 'Watch Series 4 44mm Cell 0GB',
-  remain_price: '£70.00'
-}, {
-  site_code: 'UK',
-  device: 'Watch4 Classic (42mm, BT)',
-  RRP: '£349.00',
-  brand: 'Garmin',
-  return_phone: 'Quatix5 0GB',
-  remain_price: '£60.00'
-}, {
-  site_code: 'UK',
-  device: 'Watch4 Classic (42mm, BT)',
-  RRP: '£349.00',
-  brand: 'Garmin',
-  return_phone: 'Forerunner 935 0GB',
-  remain_price: '£50.00'
-}, {
-  site_code: 'UK',
-  device: 'Watch4 Classic (42mm, BT)',
-  RRP: '£349.00',
-  brand: 'oppo',
-  return_phone: 'OPPO Watch Wifi 41mm - 8GB',
-  remain_price: '£50.00'
-}];
-
-
-/***/ }),
-
-/***/ 0:
-/*!******************************!*\
-  !*** multi ./src/js/main.js ***!
-  \******************************/
+/***/ 1:
+/*!********************************!*\
+  !*** multi ./src/js/search.js ***!
+  \********************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! ./src/js/main.js */"./src/js/main.js");
+module.exports = __webpack_require__(/*! ./src/js/search.js */"./src/js/search.js");
 
 
 /***/ })
 
 /******/ });
-//# sourceMappingURL=main.js.map
+//# sourceMappingURL=search.js.map
