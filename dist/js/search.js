@@ -1,4 +1,4 @@
-/*! Build Date: 2022-4-19 4:29:29 ├F10: PM┤ */
+/*! Build Date: 2022-4-19 5:44:33 ├F10: PM┤ */
 /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -11880,28 +11880,27 @@ window.SEARCH = function ($) {
   var dev = {
     //탭 버튼 클릭했을 때
     tabSectionChange: function tabSectionChange() {
-      var tabitem = $('.tab .item button');
-      tabitem.on('click', function () {
+      var tabItem = $('.tab .item button');
+      tabItem.on('click', function () {
         if (!$(this).hasClass('choice')) {
           $(this).closest('.tab').find('.item_button').removeClass('choice');
           $(this).addClass('choice');
-          dev.drawList();
+          dev.clearInput($(this).closest('.section').find('.btn_clear'));
         }
       });
     },
     drawList: function drawList(wordList) {
-      var $choiceTab = $('.item_button.choice').attr('id');
+      var $choiceTab = $('.item_button.choice').attr('data-tab');
       var categoryArr = $choiceTab === 'SMP' ? _json_js__WEBPACK_IMPORTED_MODULE_0__["smartphone"] : $choiceTab === 'Tablet' ? _json_js__WEBPACK_IMPORTED_MODULE_0__["tablet"] : _json_js__WEBPACK_IMPORTED_MODULE_0__["smartwatch"];
       var $list = $('.search_box .list');
       $list.empty();
       $list.scrollTop(0);
-      var newList;
 
       if (wordList) {
         var wordArr = wordList.filter(function (item) {
           return item !== '';
         });
-        var _newList = [];
+        var newList = [];
 
         for (var i = 0; i < categoryArr.length; i++) {
           //단어 반복문
@@ -11913,10 +11912,10 @@ window.SEARCH = function ($) {
             if (device.includes(wordArr[j])) wordTrueCount++;
           }
 
-          if (wordTrueCount === wordArr.length) _newList.push(categoryArr[i]);
+          if (wordTrueCount === wordArr.length) newList.push(categoryArr[i]);
         }
 
-        categoryArr = _newList;
+        categoryArr = newList;
       }
 
       var html = '';
@@ -11935,31 +11934,53 @@ window.SEARCH = function ($) {
     inputChange: function inputChange() {
       $('.search_item').on('focus', function (e) {
         $(this).closest('.search_box').addClass('active');
-        dev.drawList();
+        if (e.target.value) drawTextList(e);else dev.drawList();
       });
       $('.search_item').on('keyup', function (e) {
         if (e.target.value === '') return;
-        var arr_word = String(e.target.value).toLowerCase().split(' ');
-        dev.drawList(arr_word);
+        drawTextList(e);
       });
+
+      var drawTextList = function drawTextList(value) {
+        var arr_word = String(value.target.value).toLowerCase().split(' ');
+        dev.drawList(arr_word);
+      };
     },
-    clearInput: function clearInput() {
-      $('.btn_clear').on('click', function (e) {
-        var el = $(e.target);
-        el.siblings('input[type="text"]').val('');
+    clearInput: function clearInput(target) {
+      var el = $(target);
+      el.siblings('input[type="text"]').val('');
+      dev.drawList();
+    },
+    listItemClick: function listItemClick() {
+      $('.search_box .list').on('click', function (e) {
+        if (e.target === e.currentTarget) return;
+        var deviceName = $(e.target).text();
+        $(e.target).closest('.search_box').removeClass('active');
+        $('.your_device .device').text(deviceName);
+        $('.your_device').removeClass('is-hidden');
+        $('.section__trade').removeClass('is-hidden');
       });
     },
     init: function init() {
       dev.tabSectionChange();
       dev.inputChange();
       dev.clearInput();
+      dev.listItemClick();
     }
   };
   $(document).ready(function () {
     dev.init();
-    console.log(['galaxy', 'z', 'fold2', '5g'].includes('galaxy'));
   });
-  return {};
+  $(document).on('click', function (e) {
+    var target = $(e.target);
+
+    if (!target.hasClass('search_box') && !target.parents().hasClass('search_box')) {
+      $('.search_box').removeClass('active');
+    }
+  });
+  return {
+    clearInput: dev.clearInput
+  };
 }(jquery__WEBPACK_IMPORTED_MODULE_1___default.a);
 
 /***/ }),

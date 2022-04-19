@@ -7,28 +7,27 @@ window.SEARCH = (($) => {
   const dev = {
     //탭 버튼 클릭했을 때
 		tabSectionChange: function() {
-			var tabitem = $('.tab .item button');
-			tabitem.on('click', function() {
+			var tabItem = $('.tab .item button');
+			tabItem.on('click', function() {
 				if(!$(this).hasClass('choice')){
 					$(this)
 						.closest('.tab')
 						.find('.item_button')
 						.removeClass('choice');
 					$(this).addClass('choice');
-          dev.drawList();
+          dev.clearInput($(this).closest('.section').find('.btn_clear'));
 				}
 			});
 		},
     drawList(wordList){
       
-      const $choiceTab = $('.item_button.choice').attr('id');
+      const $choiceTab = $('.item_button.choice').attr('data-tab');
       let categoryArr = ($choiceTab === 'SMP') ? smartphone : ($choiceTab === 'Tablet') ? tablet : smartwatch;
       
       const $list = $('.search_box .list');
       $list.empty();
       $list.scrollTop(0);
       
-      let newList;
       if(wordList){
         let wordArr = wordList.filter(item => item !== '');
         let newList = [];
@@ -60,35 +59,57 @@ window.SEARCH = (($) => {
     inputChange(){
       $('.search_item').on('focus', function(e){
         $(this).closest('.search_box').addClass('active');
-        dev.drawList();
+        if(e.target.value) drawTextList(e);
+        else dev.drawList();
       })
       $('.search_item').on('keyup', function(e){
         if(e.target.value === '') return;
-        const arr_word = String(e.target.value).toLowerCase().split(' ');
-        dev.drawList(arr_word);
-      
+        drawTextList(e);
       });
+
+      let drawTextList = (value) => {
+        const arr_word = String(value.target.value).toLowerCase().split(' ');
+        dev.drawList(arr_word);
+      }
     },
-    clearInput(){
-      $('.btn_clear').on('click', (e) => {
-        const el = $(e.target);
-        el.siblings('input[type="text"]').val('')
-      })
+    clearInput(target){
+      const el = $(target);
+      el.siblings('input[type="text"]').val('');
+      dev.drawList();
+
+    },
+    listItemClick(){
+      $('.search_box .list').on('click', function(e){
+        if(e.target === e.currentTarget) return;
+        let deviceName = $(e.target).text();
+        $(e.target).closest('.search_box').removeClass('active');
+        $('.your_device .device').text(deviceName);
+        $('.your_device').removeClass('is-hidden');
+        $('.section__trade').removeClass('is-hidden');
+      });
     },
     init: function() {
       dev.tabSectionChange();
       dev.inputChange();
       dev.clearInput();
+      dev.listItemClick();
     }
   }
   $(document).ready(function() {
     dev.init();
 
-    console.log(['galaxy', 'z', 'fold2', '5g'].includes('galaxy'))
+
   });
 
-  return {
+  $(document).on('click', function (e) {
+    var target = $(e.target);
+    if (!target.hasClass('search_box') && !target.parents().hasClass('search_box')) {
+        $('.search_box').removeClass('active');
+    }
+});
 
+  return {
+    clearInput : dev.clearInput,
   }
 
 })($);

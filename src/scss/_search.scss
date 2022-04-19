@@ -3,6 +3,9 @@
 }
 
 .search{
+  .is-hidden{
+    display: none;
+  }
   .frame{
     @include vw-convert-pc(width, 740);
     margin: 0 auto;
@@ -79,6 +82,9 @@
           text-align: left;
           @include vw-convert-pc(padding, 8 22);
         }
+        &:hover{
+          background-color:rgba(248, 244, 230, 0.842);
+        }
       }
       .head{
         @include vw-convert-pc(padding, 9 22);
@@ -95,7 +101,31 @@
         display: block;
       }
     }
+
     
+  }
+  .your_device{
+    background-color: #fff;
+    border: 2px solid #757575;
+    @include vw-convert-pc(padding, 24 70);
+    @include vw-convert-pc(width, 616);
+    margin: 0 auto;
+    @include vw-convert-pc(margin-top, 35);
+    @include vw-convert-pc(border-radius, 20);
+    position: relative;
+    .bold{
+      font-weight: bold;
+    }
+    &:before{
+      content:'';
+      background: url('../images/radio-check.png') no-repeat;
+      @include vw-convert-pc(width, 19);
+      @include vw-convert-pc(height, 19);
+      @include vw-convert-pc(top, 28);
+      @include vw-convert-pc(left, 22);
+      @include vw-convert-pc(height, 19);
+      position: absolute;
+    }
   }
   &_desc{
     text-align: center;
@@ -110,21 +140,21 @@
           background-color: #fff;
         }
       }
-      #SMP{
+      [data-tab="SMP"]{
         &:before{
           background-image: url('../images/icon_smartphone.png');
           @include vw-convert-pc(width, 30);
           @include vw-convert-pc(height, 49);
         }
       }
-      #Tablet{
+      [data-tab="Tablet"]{
         &:before{
           background-image: url('../images/icon_tablet.png');
           @include vw-convert-pc(width, 57);
           @include vw-convert-pc(height, 41);
         }
       }
-      #Wearables{
+      [data-tab="Wearables"]{
         &:before{
           background-image: url('../images/icon_watch.png');
           @include vw-convert-pc(width, 39);
@@ -138,5 +168,7 @@
     &_section{
     }
   }
+
+
   
 }
