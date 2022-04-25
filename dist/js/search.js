@@ -1,4 +1,4 @@
-/*! Build Date: 2022-4-19 5:44:33 ├F10: PM┤ */
+/*! Build Date: 2022-4-25 5:59:08 ├F10: PM┤ */
 /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -11475,7 +11475,7 @@ var tablet = [{
 }, {
   model: 'Galaxy Tab S8 Ultra (128GB)',
   brand: 'Samsung',
-  device: 'Galaxy Tab S6 LTE ',
+  device: 'Galaxy Tab S6 LTE',
   value: '180.00'
 }, {
   model: 'Galaxy Tab S8 Ultra (128GB)',
@@ -11580,7 +11580,7 @@ var tablet = [{
 }, {
   model: 'Galaxy Tab S7 FE (64GB, Wifi)',
   brand: 'Samsung',
-  device: 'Galaxy Tab S6 LTE ',
+  device: 'Galaxy Tab S6 LTE',
   value: '175.00'
 }, {
   model: 'Galaxy Tab S7 FE (64GB, Wifi)',
@@ -11878,6 +11878,7 @@ window.SEARCH = function ($) {
   'use strict';
 
   var dev = {
+    myDevicePrice: '',
     //탭 버튼 클릭했을 때
     tabSectionChange: function tabSectionChange() {
       var tabItem = $('.tab .item button');
@@ -11889,9 +11890,25 @@ window.SEARCH = function ($) {
         }
       });
     },
-    drawList: function drawList(wordList) {
-      var $choiceTab = $('.item_button.choice').attr('data-tab');
-      var categoryArr = $choiceTab === 'SMP' ? _json_js__WEBPACK_IMPORTED_MODULE_0__["smartphone"] : $choiceTab === 'Tablet' ? _json_js__WEBPACK_IMPORTED_MODULE_0__["tablet"] : _json_js__WEBPACK_IMPORTED_MODULE_0__["smartwatch"];
+    drawList: function drawList($searchBox, wordList) {
+      var searchboxNum = $searchBox.attr('data-search');
+      var $choiceTab = $searchBox.siblings('.tab').find('.item_button.choice').attr('data-tab');
+      var categoryArr;
+
+      if (searchboxNum === '1') {
+        //1번 인풋
+        categoryArr = $choiceTab === 'smartphone' ? _json_js__WEBPACK_IMPORTED_MODULE_0__["smartphone"] : $choiceTab === 'tablet' ? _json_js__WEBPACK_IMPORTED_MODULE_0__["tablet"] : _json_js__WEBPACK_IMPORTED_MODULE_0__["smartwatch"];
+      } else if (searchboxNum === '2') {
+        //2번 인풋
+        categoryArr = $choiceTab === 'smartphone' ? _json_js__WEBPACK_IMPORTED_MODULE_0__["infoList"].filter(function (item) {
+          return item.category === 'smartphone';
+        }) : $choiceTab === 'tablet' ? _json_js__WEBPACK_IMPORTED_MODULE_0__["infoList"].filter(function (item) {
+          return item.category === 'tablet';
+        }) : _json_js__WEBPACK_IMPORTED_MODULE_0__["infoList"].filter(function (item) {
+          return item.category === 'smartwatch';
+        });
+      }
+
       var $list = $('.search_box .list');
       $list.empty();
       $list.scrollTop(0);
@@ -11903,17 +11920,19 @@ window.SEARCH = function ($) {
         var newList = [];
 
         for (var i = 0; i < categoryArr.length; i++) {
-          //단어 반복문
-          var device = categoryArr[i].device.toLowerCase(); //['Galaxy', 'Note', '20', 'Ultra', '5G']
-
+          var device = searchboxNum === '1' ? categoryArr[i].device : categoryArr[i].model;
           var wordTrueCount = 0;
 
           for (var j = 0; j < wordArr.length; j++) {
-            if (device.includes(wordArr[j])) wordTrueCount++;
+            if (device.toLowerCase().includes(wordArr[j])) wordTrueCount++;
           }
 
           if (wordTrueCount === wordArr.length) newList.push(categoryArr[i]);
         }
+
+        console.log(newList); // categoryArr = newList.filter((el, index) => {
+        //   return newList.indexOf(el) === index;
+        // })
 
         categoryArr = newList;
       }
@@ -11923,8 +11942,22 @@ window.SEARCH = function ($) {
       if (categoryArr.length === 0) {
         html = "<li>Your device is not eligible for trade-in.</li>";
       } else {
-        categoryArr.forEach(function (item) {
-          var text = "<li><button type=\"button\">".concat(item.device, "</button></li>");
+        var itemNameArr = [];
+
+        if (searchboxNum === '1') {
+          categoryArr.forEach(function (item) {
+            return itemNameArr.push(item.device);
+          });
+        } else {
+          categoryArr.forEach(function (item) {
+            return itemNameArr.push(item.model);
+          });
+        }
+
+        itemNameArr = new Set(itemNameArr);
+        console.log(itemNameArr);
+        itemNameArr.forEach(function (item) {
+          var text = "<li><button type=\"button\">".concat(item, "</button></li>");
           html += text;
         });
       }
@@ -11934,38 +11967,85 @@ window.SEARCH = function ($) {
     inputChange: function inputChange() {
       $('.search_item').on('focus', function (e) {
         $(this).closest('.search_box').addClass('active');
-        if (e.target.value) drawTextList(e);else dev.drawList();
+        var $currentBox = $(e.target).closest('.search_box');
+        if (e.target.value) drawTextList($currentBox, e);else dev.drawList($currentBox);
       });
       $('.search_item').on('keyup', function (e) {
+        var $currentBox = $(e.target).closest('.search_box');
         if (e.target.value === '') return;
-        drawTextList(e);
+        drawTextList($currentBox, e);
       });
 
-      var drawTextList = function drawTextList(value) {
-        var arr_word = String(value.target.value).toLowerCase().split(' ');
-        dev.drawList(arr_word);
+      var drawTextList = function drawTextList(current, eve) {
+        var arr_word = String(eve.target.value).toLowerCase().split(' ');
+        dev.drawList(current, arr_word);
       };
     },
     clearInput: function clearInput(target) {
       var el = $(target);
       el.siblings('input[type="text"]').val('');
-      dev.drawList();
+      dev.drawList(el.closest('.search_box'));
     },
-    listItemClick: function listItemClick() {
-      $('.search_box .list').on('click', function (e) {
-        if (e.target === e.currentTarget) return;
-        var deviceName = $(e.target).text();
-        $(e.target).closest('.search_box').removeClass('active');
-        $('.your_device .device').text(deviceName);
-        $('.your_device').removeClass('is-hidden');
+    listItemClick: function listItemClick(e) {
+      if (e.target === e.currentTarget) return;
+      var $clickItem = $(e.target);
+      var $listWrap = $(e.currentTarget);
+      var deviceName = $clickItem.text();
+      var $searchBox = $listWrap.closest('.search_box');
+      var $yourDevice = $searchBox.siblings('.your_device');
+      var $result = $('.section__result');
+      var html = "<li class=\"no_result\">The device you're looking for is currently not available.</li>";
+
+      var drawDevice = function drawDevice() {
+        $searchBox.removeClass('active');
+        $yourDevice.find('.device_model').text(deviceName).attr('data-price', $clickItem.attr('data-price'));
+        $yourDevice.removeClass('is-hidden');
+      };
+
+      var current = $searchBox.attr('data-search');
+
+      if (current === '1') {
         $('.section__trade').removeClass('is-hidden');
-      });
+        dev.myDevicePrice = $clickItem.data('price');
+        drawDevice();
+      } else if (current === '2') {
+        if ($('.section__purchase .choice').data('tab') !== $('.section__trade .choice').data('tab')) {
+          //카테고리가 서로 일치하지 않는경우
+          $('.search_box .list2').empty().append(html);
+          $result.empty();
+          $yourDevice.addClass('is-hidden');
+          setTimeout(function () {
+            $searchBox.addClass('active');
+          }, 500);
+        } else {
+          //일치하는 경우
+          drawDevice();
+          dev.drawResult($clickItem); //최종 결과보여줌
+
+          $result.removeClass('is-hidden');
+        }
+      }
+    },
+    drawResult: function drawResult(targetElem) {
+      var myDevicePrice = dev.myDevicePrice;
+      var newItemPrice = targetElem.data('price');
+      var finalPrice = Number(targetElem.data('price').replace(/,/g, '')) - Number(dev.myDevicePrice.replace(/,/g, ''));
+      console.log(myDevicePrice, newItemPrice, finalPrice);
+      var item;
+
+      for (var i = 0; i < _json_js__WEBPACK_IMPORTED_MODULE_0__["infoList"].length; i++) {
+        if (_json_js__WEBPACK_IMPORTED_MODULE_0__["infoList"][i].model === targetElem.text()) {
+          item = _json_js__WEBPACK_IMPORTED_MODULE_0__["infoList"][i];
+          break;
+        }
+      }
+
+      var html = "<div class=\"result\">\n          <div class=\"image\">\n              <img src= ".concat(item.image, " alt=\"\">\n          </div>\n          <div class=\"device_info\">\n            <p class=\"device_name\">").concat(item.model, "</p>\n            <span>From</span>\n            <p class=\"price\"><span class=\"blue\">\xA3").concat(finalPrice.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ','), "</span><del>\xA3").concat(newItemPrice, "</del></p>\n            <p class=\"value\">Trade-in Value <span class=\"blue\">\xA3").concat(myDevicePrice, "</span></p>\n\n            <div class=\"button_wrap\">\n                <a href=\"").concat(item.url, "\" class=\"ctaButton button\">Buy now</a>\n            </div>\n          </div>s\n      </div>");
+      $('.section__result').empty().append(html);
     },
     init: function init() {
       dev.tabSectionChange();
       dev.inputChange();
-      dev.clearInput();
-      dev.listItemClick();
     }
   };
   $(document).ready(function () {
@@ -11977,6 +12057,9 @@ window.SEARCH = function ($) {
     if (!target.hasClass('search_box') && !target.parents().hasClass('search_box')) {
       $('.search_box').removeClass('active');
     }
+  });
+  $('.search_box .list').on('click', function (e) {
+    dev.listItemClick(e);
   });
   return {
     clearInput: dev.clearInput

@@ -135,17 +135,18 @@
                 color:#7c7b7b;
             }
         }
-        .button_wrap{
-            @include vw-convert-pc(margin-top, 50);
+    }
+
+    .button_wrap{
+        @include vw-convert-pc(margin-top, 50);
+        text-align: center;
+        .button{
+            @include vw-convert-pc(padding, 19 30);
             text-align: center;
-            .button{
-                @include vw-convert-pc(padding, 19 30);
-                text-align: center;
-                background-color: #000;
-                color:#fff;
-                font-weight: bold;
-                @include vw-convert-pc(border-radius, 30);
-            }
+            background-color: #000;
+            color:#fff;
+            font-weight: bold;
+            @include vw-convert-pc(border-radius, 30);
         }
     }
 

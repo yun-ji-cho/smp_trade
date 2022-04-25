@@ -11,6 +11,7 @@
     margin: 0 auto;
   }
   &_box{
+    background-color: #fff;
     .input_box{
       @include vw-convert-pc(padding, 10 50 10 60);
       position: relative;
@@ -23,7 +24,7 @@
         position: absolute;
         top:50%;
         transform: translateY(-50%);
-        @include vw-convert-pc(left, 22);
+        @include vw-convert-pc(left, 24);
       }
   
       .btn_clear{
@@ -48,7 +49,7 @@
     @include vw-convert-pc(padding, 0 10);
 
 
-    #searchItem{
+    .search_item{
       width:100%;
       border:none;
       @include vw-convert-pc(height, 50);
@@ -93,7 +94,7 @@
     }
     &.active{
       @include vw-convert-pc(border-radius, 30);
-      #searchItem{
+      .search_item{
  
         outline:2px dashed rgb(101, 101, 250); 
       }
@@ -118,7 +119,7 @@
     }
     &:before{
       content:'';
-      background: url('../images/radio-check.png') no-repeat;
+      background: url('../images/radio-check.png') no-repeat center/100%;
       @include vw-convert-pc(width, 19);
       @include vw-convert-pc(height, 19);
       @include vw-convert-pc(top, 28);
@@ -135,26 +136,27 @@
     .item{
       &_button{
         @include vw-convert-pc(height, 78);
+        background-color: #e8e8e8;
         font-weight: bold;
         &.choice{
           background-color: #fff;
         }
       }
-      [data-tab="SMP"]{
+      [data-tab="smartphone"]{
         &:before{
           background-image: url('../images/icon_smartphone.png');
           @include vw-convert-pc(width, 30);
           @include vw-convert-pc(height, 49);
         }
       }
-      [data-tab="Tablet"]{
+      [data-tab="tablet"]{
         &:before{
           background-image: url('../images/icon_tablet.png');
           @include vw-convert-pc(width, 57);
           @include vw-convert-pc(height, 41);
         }
       }
-      [data-tab="Wearables"]{
+      [data-tab="smartwatch"]{
         &:before{
           background-image: url('../images/icon_watch.png');
           @include vw-convert-pc(width, 39);
@@ -165,10 +167,54 @@
 
 
     }
-    &_section{
+
+  }
+}
+
+.section__result{
+  @include vw-convert-pc(padding, 0 200 136);
+  .result{
+    display: flex;
+    background: #fff;
+    width:100%;
+    @include vw-convert-pc(border-radius, 30);
+    @include vw-convert-pc(padding, 39 36);
+  }
+  .image{
+    width:40%;
+    img{
+      width:100%;
     }
   }
-
-
-  
+  .device{
+    &_info{
+      flex:1;
+      font-weight: 700;
+      @include vw-font-size-pc(20);
+      del{
+        opacity: 0.6;
+      }
+      .blue{
+        color:#2289ff;
+      }
+      .price{
+        .blue{
+          @include vw-font-size-pc(48);
+          @include vw-convert-pc(padding-right, 12);
+        }
+      }
+      .value{
+        @include vw-convert-pc(padding-top, 22);
+      }
+      .button_wrap{
+        text-align: left;
+      }
+    }
+    &_name{
+      @include vw-font-size-pc(26);
+      @include vw-convert-pc(padding-bottom, 25);
+      @include vw-convert-pc(margin-bottom, 15);
+      border-bottom:1px solid rgba(0,0,0,0.1)
+    }
+  }
 }

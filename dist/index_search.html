@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <div id="wrapper">
+    <div id="wrapper" style="background-color: #f7f7f7; min-height: 100vh;">
         <div id="container" class="search">
             <section class="section section__purchase">
                 <div class="title">
@@ -18,16 +18,16 @@
                 <div class="frame">
                     <div class="tab">
                         <div class="item">
-                            <button class="item_button choice " data-tab="SMP">Smartphone</button>
+                            <button class="item_button choice " data-tab="smartphone">Smartphone</button>
                         </div>
                         <div class="item">
-                            <button class="item_button" data-tab="Tablet">Tablet</button>
+                            <button class="item_button" data-tab="tablet">Tablet</button>
                         </div>
                         <div class="item">
-                            <button class="item_button" data-tab="Wearables">Wearales</button>
+                            <button class="item_button" data-tab="smartwatch">Wearales</button>
                         </div>
                     </div>
-                    <div class="search_box">
+                    <div class="search_box" data-search="1">
                         <div class="input_box">
                             <label for="searchItem" class="blind" >제품검색</label>
                             <input type="text" id="searchItem" placeholder="Search (Eg: Galaxy S20, iPhone11)
@@ -41,8 +41,8 @@
                     </p>
 
                     <div class="your_device is-hidden">
-                        <p class="bold">Your New Device</p>
-                        <p class="device"></p>
+                        <p class="bold">Your Current Device</p>
+                        <p class="device_model"></p>
                     </div>
                 </div>
             </section>
@@ -51,54 +51,50 @@
                 <div class="frame">
                     <div class="tab">
                         <div class="item">
-                            <button class="item_button choice " data-tab="SMP">Smartphone</button>
+                            <button class="item_button choice " data-tab="smartphone">Smartphone</button>
                         </div>
                         <div class="item">
-                            <button class="item_button" data-tab="Tablet">Tablet</button>
+                            <button class="item_button" data-tab="tablet">Tablet</button>
                         </div>
                         <div class="item">
-                            <button class="item_button" data-tab="Wearables">Wearales</button>
+                            <button class="item_button" data-tab="smartwatch">Wearales</button>
                         </div>
                     </div>
-                    <div class="search_box">
+                    <div class="search_box" data-search="2">
                         <div class="input_box">
-                            <label for="searchItem" class="blind" >제품검색</label>
-                            <input type="text" id="searchItem" placeholder="Search (Eg: Galaxy S20, iPhone11)
+                            <label for="searchItem2" class="blind" >제품검색</label>
+                            <input type="text" id="searchItem2" placeholder="Search (Eg: Galaxy S20, iPhone11)
                             " class="search_item">
                             <button type="button" class="btn_clear" onclick="SEARCH.clearInput(this)">clear</button>
                         </div>
-                        <ul class="list">
+                        <ul class="list list2">
                         </ul>
                     </div>
                     <p class="search_desc">If your device is not listed, you can find out the value of all eligible<br/> models by selecting Trade In on the product buy page.
                     </p>
 
                     <div class="your_device is-hidden">
-                        <p class="bold">Your New Device</p>
-                        <p class="device"></p>
+                        <p class="bold">Your new Device</p>
+                        <p class="device_model"></p>
                     </div>
                 </div>
-
+            </section>
+            <section class="section section__result is-hidden">
+                <!-- <div class="result">
+                    <div class="image">
+                        <img src="https://images.samsung.com/is/image/samsung/p6pim/uk/2108/gallery/uk-galaxy-z-fold3-f926-5g-sm-f926bzkdeua-thumb-477352697?$160_160_PNG$" alt="">
+                    </div>
+                    <div class="device_info">
+                        <p class="device_name">Galaxy</p>
+                        <span>From</span>
+                        <p class="price"><span class="blue">£699.00</span><del>£1049.00</del></p>
+                        <p class="value">Trade-in Value <span class="blue">£350.00</span></p>
     
-                <!-- <div class="device">
-                    <div class="top">
-                        <p>Your Device</p>
-                        <p class="estimatetd">Estimated <br>Trade In Value</p>
+                        <div class="button_wrap">
+                            <a href="#" class="ctaButton button">Buy now</a>
+                        </div>
                     </div>
-                    <button type="button" class="checked-item" onclick="TRADE.listfoldToggle(this)">
-                        <p id="item_name"></p>
-                        <p class="price">Up to <span id="item_price"></span></p>
-                    </button>
-                    <ul class="list">
-                    </ul>
-                </div>    -->
-                <div class="result">
-                    <p class="before">Price before trade-in : <span class="price"></span></p>
-                    <p class="after">Final price after trade-in : £<span class="price"></span></p>
-                </div> 
-                <div class="button_wrap">
-                    <a href="#" class="ctaButton button">Buy now</a>
-                </div>
+                </div> -->
             </section>
         </div>
     </div>

@@ -577,7 +577,7 @@ const tablet = [
 	{
 		model: 'Galaxy Tab S8 Ultra (128GB)',
 		brand: 'Samsung',
-		device: 'Galaxy Tab S6 LTE ',
+		device: 'Galaxy Tab S6 LTE',
 		value: '180.00',
 	},
 	{
@@ -703,7 +703,7 @@ const tablet = [
 	{
 		model: 'Galaxy Tab S7 FE (64GB, Wifi)',
 		brand: 'Samsung',
-		device: 'Galaxy Tab S6 LTE ',
+		device: 'Galaxy Tab S6 LTE',
 		value: '175.00',
 	},
 	{
